@@ -1,3 +1,4 @@
+/*
 .header{
 	    padding: 1.5rem;
 }
@@ -9,4 +10,22 @@
 .inner{
 	width: 400px;
     margin: 0 auto;
+}
+*/
+
+.wrapper{
+	margin: 150px auto 20px;
+}
+
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+.footer {
+  grid-row-start: 2;
+  grid-row-end: 3;
 }
