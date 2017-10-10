@@ -11,13 +11,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
-		<script type="text/javascript" src="script/script.js" ></script>
+		<script type="text/javascript" src="js/script.js" ></script>
+		
 		<link rel="stylesheet" href="css/style.css" />
 		<link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css" />
 		<link rel="stylesheet" href="node_modules/spectre.css/dist/spectre.min.css" />
 		<link rel="stylesheet" href="node_modules/spectre.css/docs/css/docs.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+
 	</head>
 	<body>
 
@@ -29,6 +31,9 @@
 				</figure>
 -->
 				<p>maxezaki.com</p>
+				<div id="app">
+      {{ message }}
+    </div>
 					</section>
 </section>
 
@@ -84,4 +89,13 @@
 	
 </footer>
 	</body>
+	<script type="text/javascript" src="./node_modules/vue/dist/vue.min.js"></script>
+<script type="text/javascript">
+    new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello,Vue.js!'
+      }
+    })
+  </script>
 </html>
