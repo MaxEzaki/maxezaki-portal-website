@@ -7,7 +7,9 @@
     "spectre.css": "^0.2.14",
     "vue": "^2.4.4"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "browserify": "^14.5.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
