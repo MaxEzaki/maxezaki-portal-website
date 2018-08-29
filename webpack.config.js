@@ -61,7 +61,9 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
+        // test: /\.(png|jpg|gif|svg)$/, // element-ui 導入につき
+        test: /\.(png|jpg|gif|svg|ttf|woff)$/, // element-ui 導入につき
+        // test: /\.(png|eot|svg|ttf|woff|woff2)(\?\S*)?$/, 
         loader: 'file-loader',
         options: {
           name: '[name].[ext]?[hash]'
