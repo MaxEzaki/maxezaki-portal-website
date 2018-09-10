@@ -3,7 +3,8 @@
     <Layout>
       <Header :style="{background: '#fff', boxShadow: '0 2px 3px 2px rgba(0,0,0,.1)'}">
         <div class="layout-logo">
-          <img src="/assets/img/icon_max.png">
+          <!-- <img src="/assets/img/icon_max.png" alt="ロゴ"> -->
+          <img :src="imgPathLogo" alt="ロゴ">
         </div>
       </Header>
         <Content class="content">
@@ -61,7 +62,7 @@
         currentYear: new Date(),
         modal9: false,
         modal10: false,
-
+        imgPathLogo: require('./assets/img/icon_max.png'),
         formContact: {
             name: '',
             email: '',
