@@ -1,34 +1,16 @@
 <template>
   <div id="app">
     <Layout>
-        <Header>
-            <Menu mode="horizontal" theme="dark" active-name="1">
-                <div class="layout-logo"></div>
-                <div class="layout-nav">
-                    <MenuItem name="1">
-                        <Icon type="ios-navigate"></Icon>
-                        Item 1
-                    </MenuItem>
-                    <MenuItem name="2">
-                        <Icon type="ios-keypad"></Icon>
-                        Item 2
-                    </MenuItem>
-                    <MenuItem name="3">
-                        <Icon type="ios-analytics"></Icon>
-                        Item 3
-                    </MenuItem>
-                    <MenuItem name="4">
-                        <Icon type="ios-paper"></Icon>
-                        Item 4
-                    </MenuItem>
-                </div>
-            </Menu>
-        </Header>
+      <Header :style="{background: '#fff', boxShadow: '0 2px 3px 2px rgba(0,0,0,.1)'}">
+        <div class="layout-logo">
+          <img src="/assets/img/icon_max.png">
+        </div>
+      </Header>
         <Content class="content">
           <Card class="content_card" style="width: 614px">
             <div class="is-center">
-              <img src="/assets/img/icon.jpg">
-              <h3>Hi, this is Max_Ezaki.</h3>
+              <img src="/assets/img/img_max.jpg">
+              <h3>Hi, this is Max_Ezaki.  Feel free to contact me :)</h3>
             </div>
             <Button @click="modal10 = true">Contact</Button>
               <Modal
@@ -118,6 +100,16 @@
 </script>
 
 <style lang="scss">
+.layout-logo{
+  margin: 0 auto;
+  width: 50px;
+  height: 50px;
+  margin-top: 10px;
+}
+.layout-logo img{
+  width: 100%;
+}
+
   .ivu-card-bordered{
     margin: 0 auto
   }
