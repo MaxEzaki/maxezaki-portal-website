@@ -66,7 +66,7 @@ module.exports = {
         // test: /\.(png|eot|svg|ttf|woff|woff2)(\?\S*)?$/, 
         loader: 'file-loader',
         options: {
-          path: path.resolve(__dirname, './dist'),
+          path: path.resolve(__dirname, './'),
           name: '[name].[ext]?[hash]'
         }
       }
