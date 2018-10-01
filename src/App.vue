@@ -10,7 +10,7 @@
         <Content class="content">
           <Card class="content_card" style="width: 614px">
             <div class="is-center">
-              <img src="/assets/img/img_max.jpg">
+              <img src="./assets/img/img_max.jpg">
               <h3>Hi, this is Max_Ezaki.  Feel free to contact me :)</h3>
             </div>
             <Button @click="modalContact = true">Contact</Button>
