@@ -13,10 +13,10 @@
               <img src="/assets/img/img_max.jpg">
               <h3>Hi, this is Max_Ezaki.  Feel free to contact me :)</h3>
             </div>
-            <Button @click="modal10 = true">Contact</Button>
+            <Button @click="modalContact = true">Contact</Button>
               <Modal
                   title="Contact"
-                  v-model="modal10"
+                  v-model="modalContact"
                   class-name="vertical-center-modal" footer-hide>
                   <Form ref="formContact" :model="formContact" label-position="top" :rules="ruleValidate" name="contact" netlify>
                     <FormItem label="Name" prop="name">
@@ -61,7 +61,7 @@
       return {
         currentYear: new Date(),
         modal9: false,
-        modal10: false,
+        modalContact: false,
         imgPathLogo: require('./assets/img/icon_max.png'),
         formContact: {
             name: '',
