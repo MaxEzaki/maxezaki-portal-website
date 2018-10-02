@@ -67,7 +67,8 @@ module.exports = {
         loader: 'file-loader',
         options: {
           name: '[name].[ext]?[hash]',
-          path: path.resolve(__dirname, './dist')
+          outputPath: './assets/image',
+          path: path.resolve(__dirname, './dist'),
         }
       }
     ]
