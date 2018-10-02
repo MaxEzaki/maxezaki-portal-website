@@ -3,14 +3,14 @@
     <Layout>
       <Header :style="{background: '#fff', boxShadow: '0 2px 3px 2px rgba(0,0,0,.1)'}">
         <div class="layout-logo">
-          <img src="./assets/img/icon_max.png" alt="ロゴ">
+          <img src="./assets/image/icon_max.png" alt="ロゴ">
           <!-- <img :src="imgPathLogo" alt="ロゴ"> -->
         </div>
       </Header>
         <Content class="content">
           <Card class="content_card" style="width: 614px">
             <div class="is-center">
-              <img src="./assets/img/img_max.jpg">
+              <img src="./assets/image/img_max.jpg">
               <h3>Hi, this is Max_Ezaki.  Feel free to contact me :)</h3>
             </div>
             <Button @click="modalContact = true">Contact</Button>
@@ -62,7 +62,7 @@
         currentYear: new Date(),
         modal9: false,
         modalContact: false,
-        imgPathLogo: require('./assets/img/icon_max.png'),
+        // imgPathLogo: require('./assets/img/icon_max.png'),
         formContact: {
             name: '',
             email: '',
