@@ -68,7 +68,8 @@ module.exports = {
         options: {
           name: '[name].[ext]?[hash]',
           outputPath: './assets/image',
-          path: path.resolve(__dirname, './'),
+          // path: path.resolve(__dirname, './'),
+          publicPath: '/dist/',
         }
       }
     ]
