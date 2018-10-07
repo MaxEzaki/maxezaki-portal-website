@@ -1,17 +1,10 @@
 <template>
   <div id="app">
-    <Layout>
-      <Header :style="{background: '#fff', boxShadow: '0 2px 3px 2px rgba(0,0,0,.1)'}">
-        <div class="layout-logo">
-          <img src="./assets/image/icon_max.png" alt="ロゴ">
-          <!-- <img :src="imgPathLogo" alt="ロゴ"> -->
-        </div>
-      </Header>
-        <Content class="content">
-          <Card class="content_card" style="width: 614px">
-            <div class="is-center">
-              <img src="./assets/image/img_max.jpg">
-              <h3>Hi, this is Max_Ezaki.  Feel free to contact me :)</h3>
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </div>
+
 <Form ref="formContact" :model="formContact" label-position="top" :rules="ruleValidate" name="contact" netlify>
                     <FormItem label="Name" prop="name">
                       <Input v-model="formContact.name" placeholder="Enter your name" name="name"></Input>
@@ -30,57 +23,17 @@
                       <button type="submit">Send</button>
                     </p>
                   </Form>
-            </div>
-            <Button @click="modalContact = true">Contact</Button>
-              <Modal
-                  title="Contact"
-                  v-model="modalContact"
-                  class-name="vertical-center-modal" footer-hide>
-                  <Form ref="formContact" :model="formContact" label-position="top" :rules="ruleValidate" name="contact" netlify>
-                    <FormItem label="Name" prop="name">
-                      <Input v-model="formContact.name" placeholder="Enter your name" name="name"></Input>
-                    </FormItem>
-                    <FormItem label="Email" prop="email">
-                      <Input v-model="formContact.email" placeholder="Enter your email" name="email"></Input>
-                    </FormItem>
-                    <FormItem label="Desc" prop="desc">
-                        <Input v-model="formContact.desc" type="textarea" :autosize="{minRows: 5,maxRows: 10}" placeholder="Enter something..."></Input>
-                    </FormItem>
-                    <FormItem>
-                        <Button type="primary" @click="handleSubmit('formContact')">Submit</Button>
-                    </FormItem>
 
-                    <p>
-                      <button type="submit">Send</button>
-                    </p>
-                  </Form>
-              </Modal>
-          </Card>
-        </Content>
 
-      <Footer class="layout-footer-center is-center footer">2011-2016 &copy; Max_Ezaki </Footer>
-
-    </Layout>
+    <!-- <router-view/> -->
   </div>
 </template>
 
 <script>
-  // import MyHeader from "./components/MyHeader.vue"
-  // import Content from "./components/Content.vue"
-  // import Footer from "./components/Footer.vue"
   export default {
     name: 'app',
-    components:{
-      // MyHeader:"MyHeader",
-      // Content:"Content",
-      // Footer:"Footer"
-    },
     data() {
       return {
-        currentYear: new Date(),
-        modal9: false,
-        modalContact: false,
-        // imgPathLogo: require('./assets/img/icon_max.png'),
         formContact: {
             name: '',
             email: '',
@@ -100,22 +53,11 @@
                 { type: 'string', min: 20, message: 'Introduce no less than 20 words', trigger: 'blur' }
             ]
         }
-
-      };
-    },
-    methods:{
-      handleSubmit (name) {
-        console.log(this);
-          this.$refs[name].validate((valid) => {
-              if (valid) {
-                  this.$Message.success('Success!');
-              } else {
-                  this.$Message.error('Fail!');
-              }
-          })
+        
       }
     }
   }
+
 </script>
 
 <style lang="scss">

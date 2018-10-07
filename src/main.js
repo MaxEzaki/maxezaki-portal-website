@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import App from './App.vue'
-import iView from 'iview'
-import locale from 'iview/dist/locale/ja-JP'
-import 'iview/dist/styles/iview.css';
+import router from './router'
+import store from './store'
 
-Vue.use(iView, { locale });
+Vue.config.productionTip = false
 
 new Vue({
-  el: '#app',
+  router,
+  store,
   render: h => h(App)
-})
+}).$mount('#app')
