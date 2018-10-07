@@ -5,27 +5,20 @@
       <router-link to="/about">About</router-link>
     </div>
 
-<Form ref="formContact" :model="formContact" label-position="top" :rules="ruleValidate" name="contact" netlify>
-                    <FormItem label="Name" prop="name">
-                      <Input v-model="formContact.name" placeholder="Enter your name" name="name"></Input>
-                    </FormItem>
-                    <FormItem label="Email" prop="email">
-                      <Input v-model="formContact.email" placeholder="Enter your email" name="email"></Input>
-                    </FormItem>
-                    <FormItem label="Desc" prop="desc">
-                        <Input v-model="formContact.desc" type="textarea" :autosize="{minRows: 5,maxRows: 10}" placeholder="Enter something..."></Input>
-                    </FormItem>
-                    <FormItem>
-                        <Button type="primary" @click="handleSubmit('formContact')">Submit</Button>
-                    </FormItem>
-
-                    <p>
-                      <button type="submit">Send</button>
-                    </p>
-                  </Form>
+<form name="contact" netlify>
+  <p>
+    <label>Name <input type="text" name="name" /></label>
+  </p>
+  <p>
+    <label>Email <input type="email" name="email" /></label>
+  </p>
+  <p>
+    <button type="submit">Send</button>
+  </p>
+</form>
 
 
-    <!-- <router-view/> -->
+    <router-view/>
   </div>
 </template>
 
