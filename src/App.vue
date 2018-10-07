@@ -6,6 +6,11 @@
     </div>
 
 <form name="contact" netlify>
+
+<p class="hidden"  style="display: none;">
+    <label>Don’t fill this out: <input name="bot-field"></label>
+  </p>
+
   <p>
     <label>Name <input type="text" name="name" /></label>
   </p>
@@ -46,7 +51,7 @@
                 { type: 'string', min: 20, message: 'Introduce no less than 20 words', trigger: 'blur' }
             ]
         }
-        
+
       }
     }
   }
