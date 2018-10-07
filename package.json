@@ -9,6 +9,7 @@
   "dependencies": {
     "element": "^0.1.4",
     "node-sass": "^4.9.3",
+    "prerender-spa-plugin": "^3.4.0",
     "sass-loader": "^7.1.0",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1",
