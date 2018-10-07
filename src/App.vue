@@ -5,7 +5,31 @@
       <router-link to="/about">About</router-link>
     </div>
 
-<form name="contact" netlify>
+<!-- <QAForm /> -->
+
+  <form
+    name="ask-qa-panel"
+    method="post"
+    data-netlify="true"
+    data-netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="ask-team-vue" />
+    <label v-for="(panelist, index) in panelists" :key="index">
+      <input
+        type="radio"
+        name="panelist"
+        :value="panelist"
+        :checked="panelist === defaultPanelist"
+      />
+      <span>{{ panelist }}</span>
+    </label>
+
+  <p>
+    <button type="submit">Send</button>
+  </p>
+
+  </form>
+
+<!-- <form name="contact" netlify>
   <p>
     <label>Name <input type="text" name="name" /></label>
   </p>
@@ -15,7 +39,7 @@
   <p>
     <button type="submit">Send</button>
   </p>
-</form>
+</form> -->
 
 
     <router-view/>
@@ -23,10 +47,15 @@
 </template>
 
 <script>
+  // import QAForm from '@/components/QAForm.vue'
   export default {
     name: 'app',
     data() {
       return {
+
+      panelists: ['Evan You', 'Chris Fritz'],
+      defaultPanelist: 'Evan You',
+
         formContact: {
             name: '',
             email: '',
@@ -46,7 +75,7 @@
                 { type: 'string', min: 20, message: 'Introduce no less than 20 words', trigger: 'blur' }
             ]
         }
-        
+
       }
     }
   }
