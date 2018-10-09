@@ -7,7 +7,7 @@
 
 <!-- <QAForm /> -->
 
-  <form
+<!--   <form
     name="ask-qa-panel"
     method="post"
     data-netlify="true"
@@ -28,8 +28,8 @@
   </p>
 
   </form>
-
-<!-- <form name="contact" netlify>
+ -->
+<form name="contact" netlify>
   <p>
     <label>Name <input type="text" name="name" /></label>
   </p>
@@ -39,10 +39,10 @@
   <p>
     <button type="submit">Send</button>
   </p>
-</form> -->
+</form>
 
 
-    <router-view/>
+    <!-- <router-view/> -->
   </div>
 </template>
 
