@@ -1,48 +1,67 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+<section class="section section-header bg-gray">
+	<section class="grid-header container grid-960 text-center">
+<!--
+				<figure class="avatar avatar-xl">
+					<img src="images/logo_max00.png">
+				</figure>
+-->
+				<p>maxezaki.com</p>
+					</section>
+</section>
 
-<!-- <QAForm /> -->
+<div class="col-5 col-xs-11 wrapper">
+	<div class="panel">
+	  <div class="panel-header text-center">
+		  <figure class="avatar avatar-lg"><img src="images/icon_max00.jpg"></figure>
+	    <div class="panel-title mt-10">Max_Ezaki</div>
+	  </div>
+	  <div class="panel-nav">
+	    <ul class="tab tab-block">
+		  <li class="tab-item active">
+		    <a href="#">Profile</a>
+		  </li>
+<!--
+		  <li class="tab-item">
+		    <a href="#" class="active">Playlists</a>
+		  </li>
+		  <li class="tab-item">
+		    <a href="#">Radio</a>
+		  </li>
+		  <li class="tab-item">
+		    <a href="#">Connect</a>
+		  </li>
+-->
+		</ul>
+	  </div>
+	  <div class="panel-body">
+	    <!-- contents -->
+	    <p>
+		    
+		    Hi, this is Max Ezaki. Feel free to contact me :)<br>
+								     
+								      <a href="https://www.pakutaso.com/Max_Ezaki.html">#stockphotomodel</a> <a>#webengineer</a> <a>#mc</a> <a>#german</a> <a>#japanese</a> <a href="https://www.pakutaso.com/search.html?offset=0&limit=30&search=%E3%83%89%E3%82%A4%E3%83%84%E4%BA%BA%E3%83%8F%E3%83%BC%E3%83%95">#現役ドイツ人ハーフ</a> <a href="https://www.pakutaso.com/">#ぱくたそ</a> <a href="#">#japnese</a> <a href="#">#english</a> <a href="#">#german</a>
+	    </p>
+	    
+	    
+	  </div>
+	  <div class="panel-footer">
+	    <!-- buttons or inputs -->
+	  </div>
+	</div>
+</div>
 
-<!--   <form
-    name="ask-qa-panel"
-    method="post"
-    data-netlify="true"
-    data-netlify-honeypot="bot-field">
-    <input type="hidden" name="form-name" value="ask-team-vue" />
-    <label v-for="(panelist, index) in panelists" :key="index">
-      <input
-        type="radio"
-        name="panelist"
-        :value="panelist"
-        :checked="panelist === defaultPanelist"
-      />
-      <span>{{ panelist }}</span>
-    </label>
-
-  <p>
-    <button type="submit">Send</button>
-  </p>
-
-  </form>
- -->
-<form name="contact" netlify>
-  <p>
-    <label>Name <input type="text" name="name" /></label>
-  </p>
-  <p>
-    <label>Email <input type="email" name="email" /></label>
-  </p>
-  <p>
-    <button type="submit">Send</button>
-  </p>
-</form>
-
-
-    <!-- <router-view/> -->
+<footer class="bg-gray footer">
+	<section class="grid-footer container grid-960">
+			<div class="columns">
+			  <div class="column text-center"><a href="https://www.facebook.com/rhythmonchi/"><span class="icon"><i class="fa fa-facebook" aria-hidden="true"></i></span></a></div>
+			  <div class="column text-center"><a href="https://twitter.com/Max_Ezaki"><span class="icon"><i class="fa fa-twitter" aria-hidden="true"></i></span></a></div>
+			  <div class="column text-center"><a href="http://maxezaki.photo"><span class="icon"><i class="fa fa-tumblr" aria-hidden="true"></i></span></a></div>
+			  <div class="column text-center"><a href="https:/rhythm-onchi.com"><span class="icon"><i class="fa fa-wordpress" aria-hidden="true"></i></span></a></div>
+			</div>
+	</section>
+</footer>
   </div>
 </template>
 
