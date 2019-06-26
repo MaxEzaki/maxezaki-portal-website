@@ -24,3 +24,9 @@ npm run test
 ```
 npm run lint
 ```
+
+## vue uiで始める場合
+以下のコマンドで立ち上げる
+```
+vue ui
+```
