@@ -30,3 +30,6 @@ npm run lint
 ```
 vue ui
 ```
+
+## fontawesome についてはこれ
+https://github.com/FortAwesome/vue-fontawesome
