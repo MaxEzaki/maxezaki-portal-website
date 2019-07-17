@@ -1,17 +1,10 @@
 <template>
   <header class="navbar">
-    <section class="navbar-section">
-      <a href="#" class="btn btn-link">Docs</a>
-      <a href="#" class="btn btn-link">Examples</a>
-    </section>
+    <section class="navbar-section"></section>
     <section class="navbar-center">
-      <!-- <div class="s-rounded"><img src="../assets/images/logo_max00.png"></div> -->
-      maxezaki.com
+      <div class="logo"><img src="../assets/images/logo_max00.png"></div>
     </section>
-    <section class="navbar-section">
-      <a href="#" class="btn btn-link">Twitter</a>
-      <a href="#" class="btn btn-link">GitHub</a>
-    </section>
+    <section class="navbar-section"></section>
   </header>
 </template>
 
@@ -26,3 +19,17 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+  header{
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+    box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.2);
+  }
+  .logo{
+    width: 40px;
+    > img{
+      width: 100%;
+    }
+  }
+</style>

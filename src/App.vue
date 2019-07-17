@@ -28,6 +28,11 @@
 </script>
 
 <style lang="scss">
+#app{
+      display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 .wrapper{
 	margin: 150px auto 20px;
 }
@@ -40,8 +45,5 @@ body {
   display: grid;
   grid-template-rows: 1fr auto;
 }
-.footer {
-  grid-row-start: 2;
-  grid-row-end: 3;
-}
+
 </style>
