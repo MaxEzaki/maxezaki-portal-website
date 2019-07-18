@@ -18,32 +18,25 @@
       Header,
       Footer
     },
-    data() {
-      return {
-
-      }
-    },
   }
-
 </script>
 
 <style lang="scss">
-#app{
-      display: flex;
+  #app{
+    display: flex;
     flex-direction: column;
     min-height: 100vh;
-}
-.wrapper{
-	margin: 150px auto 20px;
-}
+  }
+  .wrapper{
+  	margin: 150px auto 20px;
+  }
 
-html {
-  height: 100%;
-}
-body {
-  min-height: 100%;
-  display: grid;
-  grid-template-rows: 1fr auto;
-}
-
+  html {
+    height: 100%;
+  }
+  body {
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: 1fr auto;
+  }
 </style>
