@@ -12,7 +12,7 @@
           <a href="http://maxezaki.photo"><span class="icon"><font-awesome-icon :icon="{ prefix: 'fab', iconName: 'tumblr' }"/></i></span></a>
         </div>
         <div class="column text-center">
-          <a href="https:/rhythm-onchi.com"><span class="icon"><font-awesome-icon :icon="{ prefix: 'fab', iconName: 'wordpress' }"/></span></a>
+          <a href="https://rhythm-onchi.com"><span class="icon"><font-awesome-icon :icon="{ prefix: 'fab', iconName: 'wordpress' }"/></span></a>
         </div>
       </div>
     </section>
