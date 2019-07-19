@@ -33,3 +33,4 @@ vue ui
 
 ## fontawesome についてはこれ
 https://github.com/FortAwesome/vue-fontawesome
+https://www.endpoint.com/blog/2018/07/12/vue-fontawesome-facebook-twitter
