@@ -2,18 +2,119 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { css } from '@linaria/core';
 import colors from '../../../config/colors';
+import { format } from 'date-fns';
+import ContactButton from '../molecules/ContactButton';
 
-const card = css`
-  width: 470px;
-  border: 1px solid ${colors.gray10};
-  border-radius: 8px;
-  background-color: #fff;
+const card = {
+  wrapper: css`
+    width: 470px;
+    border: 1px solid ${colors.gray10};
+    border-radius: 8px;
+    background-color: #fff;
+  `,
+  name: css`
+    font-size: 1.3rem;
+    padding-left: 1rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+  `,
+  image: css`
+    border-top: 1px solid ${colors.gray10};
+    border-bottom: 1px solid ${colors.gray10};
+    margin-bottom: 1rem;
+  `,
+  content: {
+    wrapper: css`
+      padding-left: 1rem;
+      border-bottom: 1px solid ${colors.gray10};
+    `,
+    description: css`
+      padding-bottom: 0.3rem;
+    `,
+  },
+};
+
+const tags = {
+  wrapper: css`
+    color: ${colors.blue};
+    display: flex;
+    padding-bottom: 1rem;
+  `,
+  text: css`
+    margin-right: 0.6rem;
+    transition: all 0.4s;
+    &:hover {
+      cursor: pointer;
+      opacity: 0.6;
+    }
+  `,
+};
+
+const time = css`
+  color: ${colors.gray40};
+  font-size: 0.8rem;
+  padding-bottom: 1rem;
 `;
 
-const Card = ({ children }) => {
+const buttonWrapper = css`
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const hashtags = [
+  {
+    id: 1,
+    name: 'フリー素材',
+  },
+  {
+    id: 2,
+    name: '司会',
+  },
+  {
+    id: 3,
+    name: 'ITエンジニア',
+  },
+  {
+    id: 4,
+    name: '塾講師',
+  },
+];
+
+const Card = (props) => {
+  const { name, image, description } = props.character;
   return (
-    <div className={card}>
-      <div>{children}</div>
+    <div className={card.wrapper}>
+      <div>
+        <p className={card.name}>{name}</p>
+        <div className={card.image}>
+          <Image
+            src={image.src}
+            alt={image.alt}
+            layout="responsive"
+            width={470}
+            height={365}
+          />
+        </div>
+        <div className={card.content.wrapper}>
+          <p className={card.content.description}>{description}</p>
+          <div className={tags.wrapper}>
+            {hashtags.map((e) => {
+              return (
+                <p className={tags.text} key={e.id}>
+                  #{e.name}
+                </p>
+              );
+            })}
+          </div>
+          <p className={time}>{format(new Date(), 'yyyy/MM/dd HH:mm')}</p>
+        </div>
+        <div className={buttonWrapper}>
+          <ContactButton />
+        </div>
+      </div>
     </div>
   );
 };
