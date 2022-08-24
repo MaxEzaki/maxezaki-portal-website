@@ -1,6 +1,8 @@
 import Header from '../organisms/Header';
 import Footer from '../organisms/Footer';
+import Image from 'next/image';
 import { css } from '@linaria/core';
+
 const wrapper = css`
   width: 100%;
   min-height: 100vh;
@@ -9,11 +11,18 @@ const wrapper = css`
   justify-content: space-between;
   overflow: hidden;
 `;
+
+const main = css`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 const Main = ({ children, router }) => {
   return (
     <div className={wrapper}>
       <Header />
-      <main>{children}</main>
+      <main className={main}>{children}</main>
       <Footer />
     </div>
   );

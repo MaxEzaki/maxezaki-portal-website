@@ -20,6 +20,13 @@ const footer = {
     justify-content: space-around;
     align-items: center;
     margin-bottom: 1rem;
+    a {
+      transition: all 0.4s;
+      &:hover {
+        cursor: pointer;
+        opacity: 0.6;
+      }
+    }
   `,
 };
 
