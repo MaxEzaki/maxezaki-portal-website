@@ -4,10 +4,10 @@ import Card from '../src/components/organisms/Card';
 const character = {
   name: 'Max_Ezaki',
   image: {
-    src: '/max_index.jpeg',
+    src: '/max_engineer.jpeg',
     alt: 'Max_Ezaki Index',
   },
-  description: `マックスさんです。\n 好きな食べ物はビールです。`,
+  description: `エンジニアさんです`,
 };
 
 const Home: NextPage = () => {

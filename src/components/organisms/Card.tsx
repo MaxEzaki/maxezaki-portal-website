@@ -30,6 +30,7 @@ const card = {
     `,
     description: css`
       padding-bottom: 0.3rem;
+      white-space: pre-wrap;
     `,
   },
 };
@@ -68,18 +69,22 @@ const hashtags = [
   {
     id: 1,
     name: 'フリー素材',
+    link: 'stockphoto',
   },
   {
     id: 2,
     name: '司会',
+    link: 'mc',
   },
   {
     id: 3,
     name: 'ITエンジニア',
+    link: 'engineer',
   },
   {
     id: 4,
     name: '塾講師',
+    link: 'teacher',
   },
 ];
 
@@ -103,9 +108,9 @@ const Card = (props) => {
           <div className={tags.wrapper}>
             {hashtags.map((e) => {
               return (
-                <p className={tags.text} key={e.id}>
-                  #{e.name}
-                </p>
+                <Link href={e.link} key={e.id}>
+                  <a className={tags.text}>#{e.name}</a>
+                </Link>
               );
             })}
           </div>
