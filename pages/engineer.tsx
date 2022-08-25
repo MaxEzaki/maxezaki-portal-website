@@ -5,7 +5,7 @@ const character = {
   name: 'Max_Ezaki',
   image: {
     src: '/max_engineer.jpeg',
-    alt: 'Max_Ezaki Index',
+    alt: 'Max_Ezaki Engineer',
   },
   description: `エンジニアさんです`,
 };

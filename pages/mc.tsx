@@ -5,9 +5,9 @@ const character = {
   name: 'Max_Ezaki',
   image: {
     src: '/max_index.jpeg',
-    alt: 'Max_Ezaki Index',
+    alt: 'Max_Ezaki MC',
   },
-  description: `マックスさんです。\n 好きな食べ物はビールです。`,
+  description: `司会です`,
 };
 
 const Home: NextPage = () => {

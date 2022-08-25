@@ -18,7 +18,10 @@ const card = {
     padding-top: 0.3rem;
     padding-bottom: 0.3rem;
   `,
-  image: css`
+  imageContainer: css`
+    position: relative;
+    width: 100%;
+    height: 335px;
     border-top: 1px solid ${colors.gray10};
     border-bottom: 1px solid ${colors.gray10};
     margin-bottom: 1rem;
@@ -39,6 +42,7 @@ const tags = {
   wrapper: css`
     color: ${colors.blue};
     display: flex;
+    flex-wrap: wrap;
     padding-bottom: 1rem;
   `,
   text: css`
@@ -86,6 +90,11 @@ const hashtags = [
     name: '塾講師',
     link: 'teacher',
   },
+  {
+    id: 4,
+    name: 'パーカショニスト',
+    link: 'percussionist',
+  },
 ];
 
 const Card = (props) => {
@@ -94,13 +103,12 @@ const Card = (props) => {
     <div className={card.wrapper}>
       <div>
         <p className={card.name}>{name}</p>
-        <div className={card.image}>
+        <div className={card.imageContainer}>
           <Image
             src={image.src}
             alt={image.alt}
-            layout="responsive"
-            width={470}
-            height={365}
+            layout="fill"
+            objectFit="cover"
           />
         </div>
         <div className={card.content.wrapper}>
