@@ -7,7 +7,7 @@ const character = {
     src: '/max_percussionist.jpeg',
     alt: 'Max_Ezaki Teacher',
   },
-  description: `太鼓叩いてます`,
+  description: `<a href="https://bommer.me" target="_blank">BOMmER</a>というバンドで太鼓叩いてます。`,
 };
 
 const Home: NextPage = () => {

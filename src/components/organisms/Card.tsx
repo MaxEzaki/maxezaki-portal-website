@@ -34,6 +34,14 @@ const card = {
     description: css`
       padding-bottom: 0.3rem;
       white-space: pre-wrap;
+      a {
+        color: ${colors.blue};
+        transition: all 0.4s;
+        &:hover {
+          cursor: pointer;
+          opacity: 0.7;
+        }
+      }
     `,
   },
 };
@@ -112,7 +120,11 @@ const Card = (props) => {
           />
         </div>
         <div className={card.content.wrapper}>
-          <p className={card.content.description}>{description}</p>
+          <p
+            className={card.content.description}
+            dangerouslySetInnerHTML={{ __html: description }}
+          ></p>
+          {/* <p className={card.content.description}>{description}</p> */}
           <div className={tags.wrapper}>
             {hashtags.map((e) => {
               return (
