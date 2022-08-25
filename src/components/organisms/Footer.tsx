@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { css } from '@linaria/core';
-import colors from '../../../config/colors';
+import { css } from 'linaria';
+import colors from 'config/colors';
 
 const footerColor = {
   backgroundColor: colors.gray20,

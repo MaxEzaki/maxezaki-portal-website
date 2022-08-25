@@ -1,5 +1,5 @@
-import { css } from '@linaria/core';
-import colors from '../../../config/colors';
+import { css } from 'linaria';
+import colors from 'config/colors';
 
 const clickHandle = () => {
   window.open('https://form.jotform.me/Max_Ezaki/contact', '_blank');

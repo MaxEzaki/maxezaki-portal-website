@@ -1,7 +1,7 @@
 import Header from '../organisms/Header';
 import Footer from '../organisms/Footer';
 import Image from 'next/image';
-import { css } from '@linaria/core';
+import { css } from 'linaria';
 
 const wrapper = css`
   width: 100%;
@@ -18,7 +18,7 @@ const main = css`
   align-items: center;
 `;
 
-const Main = (children: any) => {
+const Main = ({ children, router }: any) => {
   return (
     <div className={wrapper}>
       <Header />

@@ -1,15 +1,11 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { css } from '@linaria/core';
-import colors from '../../../config/colors';
-
-const headerColor = {
-  borderBottom: colors.gray10,
-};
+import { css } from 'linaria';
+import colors from 'config/colors';
 
 const header = css`
   height: 65px;
-  border-bottom: 1px solid ${headerColor.borderBottom};
+  border-bottom: 1px solid ${colors.gray10};
   display: flex;
   justify-content: center;
   align-items: center;

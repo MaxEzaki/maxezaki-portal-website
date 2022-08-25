@@ -3,6 +3,7 @@ import Layout from '../src/components/layouts/main';
 import '../styles/reset.css';
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
+import css from 'linaria';
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   return (
@@ -17,5 +18,11 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     </>
   );
 }
+
+// export const global = css`
+//   :global(){
+
+//   }
+// `;
 
 export default MyApp;
