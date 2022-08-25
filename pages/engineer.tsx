@@ -7,7 +7,7 @@ const character = {
     src: '/max_engineer.jpeg',
     alt: 'Max_Ezaki Engineer',
   },
-  description: `エンジニアさんです`,
+  description: `一応ITエンジニアやってます。PHP, Vue, Typescript あたりでしょうか。React はお触り中です。`,
 };
 
 const Engineer: NextPage = () => {

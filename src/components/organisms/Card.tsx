@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { css } from 'linaria';
-import colors from 'config/colors';
 import { format } from 'date-fns';
 import ContactButton from '../molecules/ContactButton';
 
@@ -116,6 +115,11 @@ const hashtags = [
     id: 5,
     name: 'パーカショニスト',
     link: '/percussionist',
+  },
+  {
+    id: 6,
+    name: '演者',
+    link: '/actor',
   },
 ];
 

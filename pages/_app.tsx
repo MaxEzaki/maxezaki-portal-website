@@ -5,10 +5,19 @@ import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import css from 'linaria';
 
+// export const global = css`
+//   :global() {
+//   }
+// `;
+
 function MyApp({ Component, pageProps, router }: AppProps) {
   return (
     <>
       <Head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Noto+Sans+JP:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Max_Ezaki</title>
       </Head>
@@ -18,11 +27,5 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     </>
   );
 }
-
-// export const global = css`
-//   :global(){
-
-//   }
-// `;
 
 export default MyApp;

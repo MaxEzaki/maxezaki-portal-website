@@ -7,7 +7,7 @@ const character = {
     src: '/max_teacher.jpeg',
     alt: 'Max_Ezaki Teacher',
   },
-  description: `塾講師やってました`,
+  description: `中学生メインで数学と理科を教えてました（英語ではない）。集団、個別どちらも対応可能。最後はイギリスで教えてました。`,
 };
 
 const Teacher: NextPage = () => {

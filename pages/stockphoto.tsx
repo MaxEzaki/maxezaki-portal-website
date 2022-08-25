@@ -7,7 +7,7 @@ const character = {
     src: '/max_stockphoto.jpeg',
     alt: 'Max_Ezaki StockPhoto Model',
   },
-  description: `フリー素材です`,
+  description: `<a href="https://www.pakutaso.com/Max_Ezaki.html" target="_blank">ぱくたそ</a>という日本一のフリー素材サイトでフリー素材モデルやってます。使ってくれたら喜びます。`,
 };
 
 const StockPhoto: NextPage = () => {
