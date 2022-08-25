@@ -5,6 +5,17 @@ import colors from '../../../config/colors';
 import { format } from 'date-fns';
 import ContactButton from '../molecules/ContactButton';
 
+type CharactorType = {
+  character: {
+    name: string;
+    image: {
+      src: string;
+      alt: string;
+    };
+    description: string;
+  };
+};
+
 const card = {
   wrapper: css`
     width: 470px;
@@ -84,31 +95,31 @@ const hashtags = [
   {
     id: 1,
     name: 'フリー素材',
-    link: 'stockphoto',
+    link: '/stockphoto',
   },
   {
     id: 2,
     name: '司会',
-    link: 'mc',
+    link: '/mc',
   },
   {
     id: 3,
     name: 'ITエンジニア',
-    link: 'engineer',
+    link: '/engineer',
   },
   {
     id: 4,
     name: '塾講師',
-    link: 'teacher',
+    link: '/teacher',
   },
   {
-    id: 4,
+    id: 5,
     name: 'パーカショニスト',
-    link: 'percussionist',
+    link: '/percussionist',
   },
 ];
 
-const Card = (props) => {
+const Card = (props: CharactorType) => {
   const { name, image, description } = props.character;
   return (
     <div className={card.wrapper}>

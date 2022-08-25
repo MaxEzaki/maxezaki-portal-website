@@ -10,7 +10,7 @@ const character = {
   description: `エンジニアさんです`,
 };
 
-const Home: NextPage = () => {
+const Engineer: NextPage = () => {
   return (
     <>
       <Card character={character} />
@@ -18,4 +18,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default Engineer;

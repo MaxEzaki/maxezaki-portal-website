@@ -18,7 +18,7 @@ const main = css`
   align-items: center;
 `;
 
-const Main = ({ children, router }) => {
+const Main = (children: any) => {
   return (
     <div className={wrapper}>
       <Header />

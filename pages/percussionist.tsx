@@ -10,7 +10,7 @@ const character = {
   description: `<a href="https://bommer.me" target="_blank">BOMmER</a>というバンドで太鼓叩いてます。`,
 };
 
-const Home: NextPage = () => {
+const Percussionist: NextPage = () => {
   return (
     <>
       <Card character={character} />
@@ -18,4 +18,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default Percussionist;

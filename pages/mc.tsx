@@ -10,7 +10,7 @@ const character = {
   description: `司会です`,
 };
 
-const Home: NextPage = () => {
+const MC: NextPage = () => {
   return (
     <>
       <Card character={character} />
@@ -18,4 +18,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default MC;

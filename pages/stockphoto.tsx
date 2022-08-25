@@ -10,7 +10,7 @@ const character = {
   description: `フリー素材です`,
 };
 
-const Home: NextPage = () => {
+const StockPhoto: NextPage = () => {
   return (
     <>
       <Card character={character} />
@@ -18,4 +18,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default StockPhoto;
