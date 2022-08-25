@@ -11,6 +11,9 @@ const card = {
     border: 1px solid ${colors.gray10};
     border-radius: 8px;
     background-color: #fff;
+    @media (max-width: 414px) {
+      border-radius: 0;
+    }
   `,
   name: css`
     font-size: 1.3rem;

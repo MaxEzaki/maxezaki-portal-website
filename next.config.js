@@ -3,9 +3,8 @@ const withLinaria = require('next-linaria');
 const nextConfig = {
   reactStrictMode: true,
 };
-
+const linariaOption = {};
 module.exports = withLinaria({
-  /* config options here */
+  ...nextConfig,
+  linaria: linariaOption,
 });
-
-// module.exports = nextConfig;
