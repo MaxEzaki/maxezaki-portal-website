@@ -3,14 +3,10 @@ import Image from 'next/image';
 import { css } from 'linaria';
 import colors from 'config/colors';
 
-const footerColor = {
-  backgroundColor: colors.gray20,
-};
-
 const footer = {
   wrapper: css`
     height: 130px;
-    background-color: ${footerColor.backgroundColor};
+    background-color: var(--color-gray20);
     display: flex;
     justify-content: center;
     align-items: center;

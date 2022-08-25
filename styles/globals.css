@@ -1,3 +1,11 @@
+:root {
+  --color-gray10: #dbdbdb;
+  --color-gray20: #eeeeee;
+  --color-gray30: #fafafa;
+  --color-gray40: #8e8e8e;
+  --color-blue: #2584c8;
+}
+
 html,
 body {
   padding: 0;

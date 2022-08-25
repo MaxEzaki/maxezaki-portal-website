@@ -7,7 +7,7 @@ const clickHandle = () => {
 
 const button = css`
   font-weight: bold;
-  border: 1px solid ${colors.gray10};
+  border: 1px solid var(--color-gray10);
   border-radius: 4px;
   background-color: #fff;
   padding: 0.4rem 4rem;
@@ -15,7 +15,7 @@ const button = css`
   &:hover {
     cursor: pointer;
     opacity: 0.7;
-    background-color: ${colors.gray10};
+    background-color: var(--color-gray10);
   }
 `;
 

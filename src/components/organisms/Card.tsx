@@ -19,7 +19,7 @@ type CharactorType = {
 const card = {
   wrapper: css`
     width: 470px;
-    border: 1px solid ${colors.gray10};
+    border: 1px solid var(--color-gray10);
     border-radius: 8px;
     background-color: #fff;
     @media (max-width: 414px) {
@@ -36,20 +36,20 @@ const card = {
     position: relative;
     width: 100%;
     height: 335px;
-    border-top: 1px solid ${colors.gray10};
-    border-bottom: 1px solid ${colors.gray10};
+    border-top: 1px solid var(--color-gray10);
+    border-bottom: 1px solid var(--color-gray10);
     margin-bottom: 1rem;
   `,
   content: {
     wrapper: css`
       padding-left: 1rem;
-      border-bottom: 1px solid ${colors.gray10};
+      border-bottom: 1px solid var(--color-gray10);
     `,
     description: css`
       padding-bottom: 0.3rem;
       white-space: pre-wrap;
       a {
-        color: ${colors.blue};
+        color: var(--color-blue);
         transition: all 0.4s;
         &:hover {
           cursor: pointer;
@@ -62,7 +62,7 @@ const card = {
 
 const tags = {
   wrapper: css`
-    color: ${colors.blue};
+    color: var(--color-blue);
     display: flex;
     flex-wrap: wrap;
     padding-bottom: 1rem;
@@ -78,7 +78,7 @@ const tags = {
 };
 
 const time = css`
-  color: ${colors.gray40};
+  color: var(--color-gray40);
   font-size: 0.8rem;
   padding-bottom: 1rem;
 `;

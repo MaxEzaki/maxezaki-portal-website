@@ -5,7 +5,7 @@ import colors from 'config/colors';
 
 const header = css`
   height: 65px;
-  border-bottom: 1px solid ${colors.gray10};
+  border-bottom: 1px solid var(--color-gray10);
   display: flex;
   justify-content: center;
   align-items: center;

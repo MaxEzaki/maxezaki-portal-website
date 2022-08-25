@@ -1,6 +1,6 @@
 {
   "name": "maxezaki-portal-website",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,12 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@chakra-ui/react": "^1.8.8",
-    "@emotion/react": "^11",
-    "@emotion/styled": "^11",
+    "@babel/preset-env": "^7.18.10",
     "date-fns": "^2.29.2",
     "framer-motion": "^4",
-    "linaria": "^4.1.2",
+    "linaria": "^2.1.3",
     "next": "12.1.6",
     "next-linaria": "^0.11.0",
     "react": "18.1.0",
