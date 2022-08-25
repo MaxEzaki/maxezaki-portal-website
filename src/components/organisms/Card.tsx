@@ -42,6 +42,7 @@ const card = {
   content: {
     wrapper: css`
       padding-left: 1rem;
+      padding-right: 1rem;
       border-bottom: 1px solid var(--color-gray10);
     `,
     description: css`
@@ -142,7 +143,6 @@ const Card = (props: CharactorType) => {
             className={card.content.description}
             dangerouslySetInnerHTML={{ __html: description }}
           ></p>
-          {/* <p className={card.content.description}>{description}</p> */}
           <div className={tags.wrapper}>
             {hashtags.map((e) => {
               return (
