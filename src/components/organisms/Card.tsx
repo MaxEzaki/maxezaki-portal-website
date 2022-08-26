@@ -21,6 +21,7 @@ const card = {
     border: 1px solid var(--color-gray10);
     border-radius: 8px;
     background-color: #fff;
+    margin: 3rem auto;
     @media (max-width: 414px) {
       border-radius: 0;
     }
