@@ -7,7 +7,7 @@ const character = {
     src: '/max_index.jpeg',
     alt: 'Max_Ezaki Index',
   },
-  description: `マックスさんです。\n好きな食べ物はビールです。`,
+  description: `現役ドイツ人ハーフのマックスさんです。\n好きな食べ物はビールです。`,
 };
 
 const Home: NextPage = () => {
