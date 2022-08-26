@@ -136,6 +136,7 @@ const Card = (props: CharactorType) => {
             alt={image.alt}
             layout="fill"
             objectFit="cover"
+            loading="eager"
           />
         </div>
         <div className={card.content.wrapper}>
