@@ -44,6 +44,12 @@ const icon = [
     alt: 'instagram',
     name: '/icon-instagram.svg',
   },
+  {
+    id: 4,
+    link: 'https://maxezaki.photo',
+    alt: 'tumblr',
+    name: '/icon-tumblr.svg',
+  },
 ];
 
 const Footer = ({}) => {
