@@ -50,6 +50,12 @@ const icon = [
     alt: 'tumblr',
     name: '/icon-tumblr.svg',
   },
+  {
+    id: 5,
+    link: 'https://soundcloud.com/max-ezaki/sets/voice-sample-from-trailer-movie-remind?si=9a77e471d4bc4c77ae56485e12b9a471&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing',
+    alt: 'soundcloud',
+    name: '/icon-soundcloud.svg',
+  },
 ];
 
 const Footer = ({}) => {
