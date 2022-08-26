@@ -1,0 +1,28 @@
+:root {
+  --color-gray10: #dbdbdb;
+  --color-gray20: #eeeeee;
+  --color-gray30: #fafafa;
+  --color-gray40: #8e8e8e;
+  --color-blue: #2584c8;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+    sans-serif;
+  background-color: #fafafa;
+  font-size: 16px;
+  color: #000;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
