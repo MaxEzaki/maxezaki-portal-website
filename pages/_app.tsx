@@ -30,7 +30,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
           property="og:description"
           content="Max_Ezaki のオフィシャルウェブサイト"
         />
-        <meta property="og:image" content="/ogp.jpeg" />
+        <meta property="og:image" content="https://maxezaki.com/ogp.jpeg" />
       </Head>
       <Layout router={router}>
         <Component {...pageProps} key={router.route} />
