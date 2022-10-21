@@ -1,8 +1,12 @@
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import useAuth from '@/hooks/useAuth';
+// import { getCsrfToken, signIn } from 'next-auth/react';
+// import { getCsrfToken, useSession, signOut } from 'next-auth/react';
+
+import { supabase } from '../libs/supabaseClient';
 
 type AuthType = {
   authId: string;
@@ -11,19 +15,19 @@ type AuthType = {
 
 const Auth: NextPage = () => {
   const route = useRouter();
-  const [auth, setAuth] = useState('login');
+  const { error } = useRouter().query;
+  // const { data: session } = useSession();
   const { register, handleSubmit } = useForm<AuthType>();
-  const checkAuth: SubmitHandler<AuthType> = (data) => {
-    if (
-      process.env.NEXT_PUBLIC_AUTH_ID !== data.authId ||
-      process.env.NEXT_PUBLIC_AUTH_PW !== data.authPw
-    ) {
-      alert('間違ってます');
-      return;
+  const checkAuth: SubmitHandler<AuthType> = async (inputData) => {
+    console.log('あああああ');
+    console.log(inputData);
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: inputData.authId,
+      password: inputData.authPw,
+    });
+    if (error) {
+      alert('やり直してね');
     }
-    console.log('認証通ったよ');
-    setAuth('login');
-    route.push('/resume');
   };
   return (
     <form onSubmit={handleSubmit(checkAuth)}>

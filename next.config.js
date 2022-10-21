@@ -6,6 +6,7 @@ const nextConfig = {
     optimizeFonts: true,
   },
 };
+
 const linariaOption = {};
 module.exports = withLinaria({
   ...nextConfig,

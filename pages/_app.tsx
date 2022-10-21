@@ -3,8 +3,13 @@ import Layout from '../src/components/layouts/main';
 import '../styles/reset.css';
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
+import { SessionProvider } from 'next-auth/react';
 
-function MyApp({ Component, pageProps, router }: AppProps) {
+function MyApp({
+  Component,
+  pageProps: { session, ...pageProps },
+  router,
+}: AppProps) {
   return (
     <>
       <Head>
@@ -32,9 +37,11 @@ function MyApp({ Component, pageProps, router }: AppProps) {
         />
         <meta property="og:image" content="https://maxezaki.com/ogp.png" />
       </Head>
-      <Layout router={router}>
-        <Component {...pageProps} key={router.route} />
-      </Layout>
+      <SessionProvider session={session}>
+        <Layout router={router}>
+          <Component {...pageProps} key={router.route} />
+        </Layout>
+      </SessionProvider>
     </>
   );
 }
