@@ -1,5 +1,4 @@
-import { useState, useEffect, HtmlHTMLAttributes } from 'react';
-import Link from 'next/link';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { css } from 'linaria';
 import { format } from 'date-fns';
