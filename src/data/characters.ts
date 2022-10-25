@@ -66,4 +66,13 @@ export const characters = [
     <a href="https://soundcloud.com/max-ezaki/sets/voice-sample-from-trailer-movie-remind?si=9a77e471d4bc4c77ae56485e12b9a471&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" target="_blank">ボイスサンプル</a>もあります`,
     type: 'actor',
   },
+  {
+    name: '404 Not Found!!',
+    image: {
+      src: '/max_404.jpeg',
+      alt: '404 Not Found',
+    },
+    description: `残念！お探しのページはありませんね。`,
+    type: '404',
+  },
 ];
