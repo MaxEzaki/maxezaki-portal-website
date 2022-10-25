@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { css } from 'linaria';
 import { format } from 'date-fns';
 import ContactButton from '../molecules/ContactButton';
 import { hashtags } from '../../data/hashtags';
 import { characters } from '../../data/characters';
+import Link from 'next/link';
 
 const card = {
   wrapper: css`
@@ -84,7 +85,8 @@ const buttonWrapper = css`
   align-items: center;
 `;
 
-const Card = () => {
+const Card = (props: { type?: string }) => {
+  // const type = !props.type ? 'index' : '404';
   const [filtredCharacter, setFiltredCharacter] = useState(characters);
   const handleCharacter = (value: string) => {
     value !== 'index'
@@ -95,9 +97,10 @@ const Card = () => {
     let filtredPokemon = characters.filter((e) => e.type === characterType);
     return filtredPokemon;
   };
+
   useEffect(() => {
-    setFiltredCharacter(filterCharacter('index'));
-  }, []);
+    setFiltredCharacter(filterCharacter(!props.type ? 'index' : '404'));
+  }, [props.type]);
 
   return (
     <div className={card.wrapper}>
@@ -120,17 +123,21 @@ const Card = () => {
                 dangerouslySetInnerHTML={{ __html: e.description }}
               ></p>
               <div className={tags.wrapper}>
-                {hashtags.map((e) => {
-                  return (
-                    <a
-                      className={tags.text}
-                      key={e.id}
-                      onClick={() => handleCharacter(e.value)}
-                    >
-                      #{e.name}
-                    </a>
-                  );
-                })}
+                {props.type != '404' ? (
+                  hashtags.map((e) => {
+                    return (
+                      <a
+                        className={tags.text}
+                        key={e.id}
+                        onClick={() => handleCharacter(e.value)}
+                      >
+                        #{e.name}
+                      </a>
+                    );
+                  })
+                ) : (
+                  <Link href={'/'}>トップページへ戻る &gt;&gt;</Link>
+                )}
               </div>
               <p className={time}>{format(new Date(), 'yyyy/MM/dd HH:mm')}</p>
             </div>
