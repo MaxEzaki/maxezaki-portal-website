@@ -13,9 +13,10 @@ const wrapper = css`
 `;
 
 const main = css`
-  display: flex;
+  flex: 1;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 `;
 
 const Main = ({ children, router }: any) => {
