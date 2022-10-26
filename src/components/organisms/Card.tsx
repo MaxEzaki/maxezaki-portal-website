@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useLayoutEffect } from 'react';
 import Image from 'next/image';
 import { css } from 'linaria';
 import { format } from 'date-fns';
@@ -86,7 +86,6 @@ const buttonWrapper = css`
 `;
 
 const Card = (props: { type?: string }) => {
-  // const type = !props.type ? 'index' : '404';
   const [filtredCharacter, setFiltredCharacter] = useState(characters);
   const handleCharacter = (value: string) => {
     value !== 'index'
@@ -98,7 +97,7 @@ const Card = (props: { type?: string }) => {
     return filtredPokemon;
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setFiltredCharacter(filterCharacter(!props.type ? 'index' : '404'));
   }, [props.type]);
 
