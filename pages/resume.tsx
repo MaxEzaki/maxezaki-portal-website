@@ -110,7 +110,7 @@ const Resume: NextPage = () => {
           </p>
           <div>
             <div className={resume.wrapper.content}>
-              <h2 className={resume.wrapper.h2}>Language</h2>
+              <h2>Language</h2>
               <div>
                 <ul className={lists.group}>
                   <li>Japanese</li>
@@ -119,7 +119,7 @@ const Resume: NextPage = () => {
               </div>
             </div>
             <div className={resume.wrapper.content}>
-              <h2 className={resume.wrapper.h2}>Skills</h2>
+              <h2>Skills</h2>
               <div>
                 <ul className={lists.group}>
                   {skills.map((e, index) => (
