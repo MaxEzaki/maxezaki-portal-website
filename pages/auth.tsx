@@ -21,10 +21,10 @@ const Auth: NextPage = () => {
   const checkAuth: SubmitHandler<AuthType> = async (inputData) => {
     console.log('あああああ');
     console.log(inputData);
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email: inputData.authId,
-      password: inputData.authPw,
-    });
+    // const { data, error } = await supabase.auth.signInWithPassword({
+    //   email: inputData.authId,
+    //   password: inputData.authPw,
+    // });
     if (error) {
       alert('やり直してね');
     }
