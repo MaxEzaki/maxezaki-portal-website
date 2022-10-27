@@ -32,18 +32,15 @@ const resume = {
       > div:first-child {
         display: flex;
         justify-content: space-between;
-        /* align-items: center; */
         flex-flow: column;
-        /* border-bottom: 1px solid #41414174; */
         padding-bottom: 2.2em;
-        padding-top: 4em;
+        padding-top: 1.4em;
         h1 {
           font-size: 3.4em;
           margin-bottom: 0.8em;
         }
       }
       > div:nth-child(2) {
-        /* padding-top: 3em; */
         h2 {
           position: relative;
           margin-bottom: 0.4em;
@@ -60,17 +57,17 @@ const resume = {
     `,
     content: css`
       margin-bottom: 2em;
-    `,
-    h2: css`
-      position: relative;
-      margin-bottom: 0.4em;
-      padding-bottom: 0.2em;
-      &::before {
-        position: absolute;
-        bottom: 0;
-        content: '';
-        width: 100%;
-        border-bottom: 2px solid white;
+      h2 {
+        position: relative;
+        margin-bottom: 0.4em;
+        padding-bottom: 0.2em;
+        &::before {
+          position: absolute;
+          bottom: 0;
+          content: '';
+          width: 100%;
+          border-bottom: 2px solid white;
+        }
       }
     `,
   },
@@ -96,9 +93,7 @@ const lists = {
 };
 
 const Resume: NextPage = () => {
-  useLayoutEffect(() => {
-    // route.push('/auth');
-  });
+  useLayoutEffect(() => {});
   return (
     <>
       <div className={resume.wrapper.columns}>
@@ -123,7 +118,7 @@ const Resume: NextPage = () => {
                 </ul>
               </div>
             </div>
-            <div>
+            <div className={resume.wrapper.content}>
               <h2 className={resume.wrapper.h2}>Skills</h2>
               <div>
                 <ul className={lists.group}>
@@ -144,7 +139,7 @@ const Resume: NextPage = () => {
           </div>
           <div>
             <h2>Experience</h2>
-            Comming soon...
+            Coming soon...
           </div>
         </div>
       </div>

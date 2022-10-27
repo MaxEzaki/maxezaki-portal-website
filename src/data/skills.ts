@@ -6,9 +6,11 @@ export const skills = [
   'Vue',
   'jQuery',
   'HTML',
-  'CSS(Sass, SCSS)',
+  'CSS (SASS, SCSS)',
   'MySQL',
   'mongodb',
   'AWS',
   'Docker',
+  'MC',
+  'Model (stock photo)',
 ];
