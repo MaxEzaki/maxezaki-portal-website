@@ -1,11 +1,11 @@
-import React, { useState, useLayoutEffect } from 'react';
-import Image from 'next/image';
-import { css } from 'linaria';
-import { format } from 'date-fns';
-import ContactButton from './ContactButton';
-import { hashtags } from '../data/hashtags';
-import { characters } from '../data/characters';
-import Link from 'next/link';
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import { css } from "linaria";
+import { format } from "date-fns";
+import ContactButton from "./ContactButton";
+import { hashtags } from "../data/hashtags";
+import { characters } from "../data/characters";
+import Link from "next/link";
 
 const card = {
   wrapper: css`
@@ -88,17 +88,17 @@ const buttonWrapper = css`
 const Card = (props: { type?: string }) => {
   const [filtredCharacter, setFiltredCharacter] = useState(characters);
   const handleCharacter = (value: string) => {
-    value !== 'index'
+    value !== "index"
       ? setFiltredCharacter(filterCharacter(value))
-      : setFiltredCharacter(filterCharacter('index'));
+      : setFiltredCharacter(filterCharacter("index"));
   };
   const filterCharacter = (characterType: string) => {
     let filtredPokemon = characters.filter((e) => e.type === characterType);
     return filtredPokemon;
   };
 
-  useLayoutEffect(() => {
-    setFiltredCharacter(filterCharacter(!props.type ? 'index' : '404'));
+  useEffect(() => {
+    setFiltredCharacter(filterCharacter(!props.type ? "index" : "404"));
   }, [props.type]);
 
   return (
@@ -122,7 +122,7 @@ const Card = (props: { type?: string }) => {
                 dangerouslySetInnerHTML={{ __html: e.description }}
               ></p>
               <div className={tags.wrapper}>
-                {props.type != '404' ? (
+                {props.type != "404" ? (
                   hashtags.map((e) => {
                     return (
                       <a
@@ -135,10 +135,10 @@ const Card = (props: { type?: string }) => {
                     );
                   })
                 ) : (
-                  <Link href={'/'}>トップページへ戻る &gt;&gt;</Link>
+                  <Link href={"/"}>トップページへ戻る &gt;&gt;</Link>
                 )}
               </div>
-              <p className={time}>{format(new Date(), 'yyyy/MM/dd HH:mm')}</p>
+              <p className={time}>{format(new Date(), "yyyy/MM/dd HH:mm")}</p>
             </div>
             <div className={buttonWrapper}>
               <ContactButton />

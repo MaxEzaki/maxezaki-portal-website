@@ -1,19 +1,16 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import { css } from 'linaria';
+import Link from "next/link";
+import Image from "next/image";
+import { css, cx } from "linaria";
 
 const header = css`
   height: 60px;
   border-bottom: 1px solid var(--color-gray10);
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: #fff;
 `;
 
 const Header = ({}) => {
   return (
-    <header className={header}>
+    <header className={cx(header, "bg-white flex items-center justify-center")}>
       <Link href="/">
         <a>
           <Image

@@ -1,13 +1,11 @@
-import { css } from 'linaria';
+import { css, cx } from "linaria";
 
 const clickHandle = () => {
-  window.open('https://form.jotform.me/Max_Ezaki/contact', '_blank');
+  window.open("https://form.jotform.me/Max_Ezaki/contact", "_blank");
 };
 
 const button = css`
-  font-weight: bold;
   border: 1px solid var(--color-gray10);
-  border-radius: 4px;
   background-color: #fff;
   padding: 0.4rem 4rem;
   transition: all 0.4s;
@@ -20,7 +18,7 @@ const button = css`
 
 const Header = ({}) => {
   return (
-    <button className={button} onClick={clickHandle}>
+    <button className={cx(button, "rounded font-bold")} onClick={clickHandle}>
       Contact
     </button>
   );
