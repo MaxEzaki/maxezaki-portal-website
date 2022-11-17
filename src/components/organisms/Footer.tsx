@@ -1,6 +1,13 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { css } from 'linaria';
+import {
+  FaWordpress,
+  FaTwitter,
+  FaInstagram,
+  FaTumblr,
+  FaSoundcloud,
+  FaLinkedin,
+} from 'react-icons/fa';
 
 const footer = {
   wrapper: css`
@@ -29,32 +36,32 @@ const icon = [
   {
     id: 1,
     link: 'https://rhythm-onchi.com',
-    alt: 'リズム音痴',
-    name: '/icon-wordpress.svg',
+    name: <FaWordpress size={'2em'} title={'blog'} />,
   },
   {
     id: 2,
     link: 'https://twitter.com/Max_Ezaki',
-    alt: 'Twitter',
-    name: '/icon-twitter.svg',
+    name: <FaTwitter size={'2em'} title={'Twitter'} />,
   },
   {
     id: 3,
     link: 'https://www.instagram.com/max_ezaki/',
-    alt: 'instagram',
-    name: '/icon-instagram.svg',
+    name: <FaInstagram size={'2em'} title={'instagram'} />,
   },
   {
     id: 4,
     link: 'https://maxezaki.photo',
-    alt: 'tumblr',
-    name: '/icon-tumblr.svg',
+    name: <FaTumblr size={'2em'} title={'tumblr'} />,
   },
   {
     id: 5,
     link: 'https://soundcloud.com/max-ezaki/sets/voice-sample-from-trailer-movie-remind?si=9a77e471d4bc4c77ae56485e12b9a471&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing',
-    alt: 'soundcloud',
-    name: '/icon-soundcloud.svg',
+    name: <FaSoundcloud size={'2em'} title={'soundcloud'} />,
+  },
+  {
+    id: 6,
+    link: 'https://www.linkedin.com/in/max-ezaki-06a364159/',
+    name: <FaLinkedin size={'2em'} title={'linkedin'} />,
   },
 ];
 
@@ -66,9 +73,7 @@ const Footer = ({}) => {
           {icon.map((e) => {
             return (
               <Link href={e.link} key={e.id}>
-                <a target="_blank">
-                  <Image src={e.name} alt={e.alt} width={36} height={36} />
-                </a>
+                <a target="_blank">{e.name}</a>
               </Link>
             );
           })}
