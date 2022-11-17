@@ -1,6 +1,5 @@
-import Header from '../organisms/Header';
-import Footer from '../organisms/Footer';
-import Image from 'next/image';
+import Header from '../Header';
+import Footer from '../Footer';
 import { css } from 'linaria';
 
 const wrapper = css`
@@ -14,9 +13,9 @@ const wrapper = css`
 
 const main = css`
   flex: 1;
-  /* display: flex;
+  display: flex;
   justify-content: center;
-  align-items: center; */
+  align-items: center;
 `;
 
 const Main = ({ children, router }: any) => {

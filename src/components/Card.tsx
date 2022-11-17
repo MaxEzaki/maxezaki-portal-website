@@ -2,9 +2,9 @@ import React, { useState, useLayoutEffect } from 'react';
 import Image from 'next/image';
 import { css } from 'linaria';
 import { format } from 'date-fns';
-import ContactButton from '../molecules/ContactButton';
-import { hashtags } from '../../data/hashtags';
-import { characters } from '../../data/characters';
+import ContactButton from './ContactButton';
+import { hashtags } from '../data/hashtags';
+import { characters } from '../data/characters';
 import Link from 'next/link';
 
 const card = {

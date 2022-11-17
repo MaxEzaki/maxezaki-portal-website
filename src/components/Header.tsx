@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { css } from 'linaria';
 
 const header = css`
-  height: 65px;
+  height: 60px;
   border-bottom: 1px solid var(--color-gray10);
   display: flex;
   justify-content: center;
