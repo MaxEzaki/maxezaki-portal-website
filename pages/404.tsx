@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import Card from '../src/components/organisms/Card';
+import Card from '../src/components/Card';
 import { css } from 'linaria';
 
 const cardWrapper = css`
