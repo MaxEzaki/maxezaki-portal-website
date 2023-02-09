@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { css } from "linaria";
+import { css, cx } from "linaria";
 import { format } from "date-fns";
 import ContactButton from "./ContactButton";
 import { hashtags } from "../data/hashtags";
@@ -34,8 +34,6 @@ const card = {
   `,
   content: {
     wrapper: css`
-      padding-left: 1rem;
-      padding-right: 1rem;
       border-bottom: 1px solid var(--color-gray10);
     `,
     description: css`
@@ -57,12 +55,8 @@ const card = {
 const tags = {
   wrapper: css`
     color: var(--color-blue);
-    display: flex;
-    flex-wrap: wrap;
-    padding-bottom: 1rem;
   `,
   text: css`
-    margin-right: 0.6rem;
     transition: all 0.4s;
     &:hover {
       cursor: pointer;
@@ -74,15 +68,6 @@ const tags = {
 const time = css`
   color: var(--color-gray40);
   font-size: 0.8rem;
-  padding-bottom: 1rem;
-`;
-
-const buttonWrapper = css`
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 `;
 
 const Card = (props: { type?: string }) => {
@@ -116,17 +101,17 @@ const Card = (props: { type?: string }) => {
                 loading="eager"
               />
             </div>
-            <div className={card.content.wrapper}>
+            <div className={cx(card.content.wrapper, "px-4")}>
               <p
                 className={card.content.description}
                 dangerouslySetInnerHTML={{ __html: e.description }}
               ></p>
-              <div className={tags.wrapper}>
+              <div className={cx(tags.wrapper, "flex flex-wrap pb-4")}>
                 {props.type != "404" ? (
                   hashtags.map((e) => {
                     return (
                       <a
-                        className={tags.text}
+                        className={cx(tags.text, "mr-2")}
                         key={e.id}
                         onClick={() => handleCharacter(e.value)}
                       >
@@ -138,9 +123,11 @@ const Card = (props: { type?: string }) => {
                   <Link href={"/"}>トップページへ戻る &gt;&gt;</Link>
                 )}
               </div>
-              <p className={time}>{format(new Date(), "yyyy/MM/dd HH:mm")}</p>
+              <p className={cx(time, "pb-4")}>
+                {format(new Date(), "yyyy/MM/dd HH:mm")}
+              </p>
             </div>
-            <div className={buttonWrapper}>
+            <div className={cx("flex items-center justify-center py-6")}>
               <ContactButton />
             </div>
           </div>
