@@ -1,0 +1,16 @@
+export const skills = [
+  'PHP',
+  'CakePHP',
+  'Javascipt',
+  'Typescript',
+  'Vue',
+  'jQuery',
+  'HTML',
+  'CSS (SASS, SCSS)',
+  'MySQL',
+  'mongodb',
+  'AWS',
+  'Docker',
+  'MC',
+  'Model (stock photo)',
+];
