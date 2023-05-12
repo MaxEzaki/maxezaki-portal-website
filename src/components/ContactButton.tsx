@@ -1,7 +1,7 @@
 import { css, cx } from "linaria";
 
 const clickHandle = () => {
-  window.open("https://form.jotform.me/Max_Ezaki/contact", "_blank");
+  window.open("https://form.jotform.me/83018968684472", "_blank");
 };
 
 const button = css`
