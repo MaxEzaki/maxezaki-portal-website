@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import Image from "next/image";
 import { css, cx } from "linaria";
 import { format } from "date-fns";
@@ -72,6 +72,8 @@ const time = css`
 
 const Card = (props: { type?: string }) => {
   const [filtredCharacter, setFiltredCharacter] = useState(characters);
+  // characters中身全てが一瞬チラつくため、擬似ローディング
+  const [isLoading, setLoading] = useState(true);
   const handleCharacter = (value: string) => {
     value !== "index"
       ? setFiltredCharacter(filterCharacter(value))
@@ -82,57 +84,66 @@ const Card = (props: { type?: string }) => {
     return filtredPokemon;
   };
 
-  useEffect(() => {
+  // useEffect(() => {
+  useLayoutEffect(() => {
     setFiltredCharacter(filterCharacter(!props.type ? "index" : "404"));
   }, [props.type]);
 
+  useEffect(() => {
+    setLoading(false);
+  }, []);
+
   return (
-    <div className={card.wrapper}>
-      {filtredCharacter &&
-        filtredCharacter.map((e, index) => (
-          <div key={index}>
-            <p className={card.name}>{e.name}</p>
-            <div className={card.imageContainer}>
-              <Image
-                src={e.image.src}
-                alt={e.image.alt}
-                layout="fill"
-                objectFit="cover"
-                loading="eager"
-              />
-            </div>
-            <div className={cx(card.content.wrapper, "px-4")}>
-              <p
-                className={card.content.description}
-                dangerouslySetInnerHTML={{ __html: e.description }}
-              ></p>
-              <div className={cx(tags.wrapper, "flex flex-wrap pb-4")}>
-                {props.type != "404" ? (
-                  hashtags.map((e) => {
-                    return (
-                      <a
-                        className={cx(tags.text, "mr-2")}
-                        key={e.id}
-                        onClick={() => handleCharacter(e.value)}
-                      >
-                        #{e.name}
-                      </a>
-                    );
-                  })
-                ) : (
-                  <Link href={"/"}>トップページへ戻る &gt;&gt;</Link>
-                )}
+    <>
+      {!isLoading && (
+        <div className={card.wrapper}>
+          {filtredCharacter &&
+            filtredCharacter.map((e, index) => (
+              <div key={index}>
+                <p className={card.name}>{e.name}</p>
+                <div className={card.imageContainer}>
+                  <Image
+                    src={e.image.src}
+                    alt={e.image.alt}
+                    layout="fill"
+                    objectFit="cover"
+                    loading="eager"
+                  />
+                </div>
+                <div className={cx(card.content.wrapper, "px-4")}>
+                  <p
+                    className={card.content.description}
+                    dangerouslySetInnerHTML={{ __html: e.description }}
+                  ></p>
+                  <div className={cx(tags.wrapper, "flex flex-wrap pb-4")}>
+                    {props.type != "404" ? (
+                      hashtags.map((e) => {
+                        return (
+                          <a
+                            className={cx(tags.text, "mr-2")}
+                            key={e.id}
+                            onClick={() => handleCharacter(e.value)}
+                          >
+                            #{e.name}
+                          </a>
+                        );
+                      })
+                    ) : (
+                      <Link href={"/"}>トップページへ戻る &gt;&gt;</Link>
+                    )}
+                  </div>
+                  <p className={cx(time, "pb-4")}>
+                    {format(new Date(), "yyyy/MM/dd HH:mm")}
+                  </p>
+                </div>
+                <div className={cx("flex items-center justify-center py-6")}>
+                  <ContactButton />
+                </div>
               </div>
-              <p className={cx(time, "pb-4")}>
-                {format(new Date(), "yyyy/MM/dd HH:mm")}
-              </p>
-            </div>
-            <div className={cx("flex items-center justify-center py-6")}>
-              <ContactButton />
-            </div>
-          </div>
-        ))}
-    </div>
+            ))}
+        </div>
+      )}
+    </>
   );
 };
 
