@@ -84,7 +84,6 @@ const Card = (props: { type?: string }) => {
     return filtredPokemon;
   };
 
-  // useEffect(() => {
   useLayoutEffect(() => {
     setFiltredCharacter(filterCharacter(!props.type ? "index" : "404"));
   }, [props.type]);
