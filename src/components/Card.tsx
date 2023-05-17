@@ -6,6 +6,16 @@ import ContactButton from "./ContactButton";
 import { hashtags } from "../data/hashtags";
 import { characters } from "../data/characters";
 import Link from "next/link";
+import { useRouter } from "next/router";
+
+type CharacterType =
+  | "index"
+  | "stockphoto"
+  | "mc"
+  | "engineer"
+  | "teacher"
+  | "percussionist"
+  | "actor";
 
 const card = {
   wrapper: css`
@@ -70,10 +80,18 @@ const time = css`
   font-size: 0.8rem;
 `;
 
-const Card = (props: { type?: string }) => {
+const Card = (props: { type: CharacterType }) => {
+  console.log(`props:::`, props.type);
+  // type CharacterType =
+  // | "index"
+  // | "stockphoto"
+  // | "mc"
+  // | "engineer"
+  // | "teacher"
+  // | "percussionist"
+  // | "actor";
+  // const router = useRouter();
   const [filtredCharacter, setFiltredCharacter] = useState(characters);
-  // characters中身全てが一瞬チラつくため、擬似ローディング
-  const [isLoading, setLoading] = useState(true);
   const handleCharacter = (value: string) => {
     value !== "index"
       ? setFiltredCharacter(filterCharacter(value))
@@ -85,64 +103,59 @@ const Card = (props: { type?: string }) => {
   };
 
   useLayoutEffect(() => {
-    setFiltredCharacter(filterCharacter(!props.type ? "index" : "404"));
+    // const characterType = characterList.includes(props.type)
+    //   ? props.type
+    //   : "index";
+    setFiltredCharacter(filterCharacter(props.type));
   }, [props.type]);
 
-  useEffect(() => {
-    setLoading(false);
-  }, []);
-
   return (
-    <>
-      {!isLoading && (
-        <div className={card.wrapper}>
-          {filtredCharacter &&
-            filtredCharacter.map((e, index) => (
-              <div key={index}>
-                <p className={card.name}>{e.name}</p>
-                <div className={card.imageContainer}>
-                  <Image
-                    src={e.image.src}
-                    alt={e.image.alt}
-                    layout="fill"
-                    objectFit="cover"
-                    loading="eager"
-                  />
-                </div>
-                <div className={cx(card.content.wrapper, "px-4")}>
-                  <p
-                    className={card.content.description}
-                    dangerouslySetInnerHTML={{ __html: e.description }}
-                  ></p>
-                  <div className={cx(tags.wrapper, "flex flex-wrap pb-4")}>
-                    {props.type != "404" ? (
-                      hashtags.map((e) => {
-                        return (
-                          <a
-                            className={cx(tags.text, "mr-2")}
-                            key={e.id}
-                            onClick={() => handleCharacter(e.value)}
-                          >
-                            #{e.name}
-                          </a>
-                        );
-                      })
-                    ) : (
-                      <Link href={"/"}>トップページへ戻る &gt;&gt;</Link>
-                    )}
-                  </div>
-                  <p className={cx(time, "pb-4")}>
-                    {format(new Date(), "yyyy/MM/dd HH:mm")}
-                  </p>
-                </div>
-                <div className={cx("flex items-center justify-center py-6")}>
-                  <ContactButton />
-                </div>
+    <div className={card.wrapper}>
+      {filtredCharacter &&
+        filtredCharacter.map((e, index) => (
+          <div key={index}>
+            <p className={card.name}>{e.name}</p>
+            <div className={card.imageContainer}>
+              <Image
+                src={e.image.src}
+                alt={e.image.alt}
+                layout="fill"
+                objectFit="cover"
+                loading="eager"
+              />
+            </div>
+            <div className={cx(card.content.wrapper, "px-4")}>
+              <p
+                className={card.content.description}
+                dangerouslySetInnerHTML={{ __html: e.description }}
+              ></p>
+              <div className={cx(tags.wrapper, "flex flex-wrap pb-4")}>
+                {props.type != "404" ? (
+                  hashtags.map((e) => {
+                    return (
+                      <a
+                        className={cx(tags.text, "mr-2")}
+                        key={e.id}
+                        onClick={() => handleCharacter(e.value)}
+                      >
+                        #{e.name}
+                      </a>
+                    );
+                  })
+                ) : (
+                  <Link href={"/"}>トップページへ戻る &gt;&gt;</Link>
+                )}
               </div>
-            ))}
-        </div>
-      )}
-    </>
+              <p className={cx(time, "pb-4")}>
+                {format(new Date(), "yyyy/MM/dd HH:mm")}
+              </p>
+            </div>
+            <div className={cx("flex items-center justify-center py-6")}>
+              <ContactButton />
+            </div>
+          </div>
+        ))}
+    </div>
   );
 };
 
