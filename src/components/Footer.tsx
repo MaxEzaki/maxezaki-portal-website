@@ -77,8 +77,8 @@ const Footer = ({}) => {
         <div className={footer.icon}>
           {icon.map((e) => {
             return (
-              <Link href={e.link} key={e.id}>
-                <a target="_blank">{e.name}</a>
+              <Link href={e.link} key={e.id} target="_blank">
+                {e.name}
               </Link>
             );
           })}

@@ -12,14 +12,12 @@ const Header = ({}) => {
   return (
     <header className={cx(header, "bg-white flex items-center justify-center")}>
       <Link href="/">
-        <a>
-          <Image
-            src="/logo_max.svg"
-            alt="Logo of Max_Ezaki"
-            width={48}
-            height={48}
-          />
-        </a>
+        <Image
+          src="/logo_max.svg"
+          alt="Logo of Max_Ezaki"
+          width={48}
+          height={48}
+        />
       </Link>
     </header>
   );

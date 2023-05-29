@@ -2,9 +2,7 @@ import Head from "next/head";
 import Layout from "../src/components/layouts/main";
 import "../styles/reset.css";
 import "../styles/globals.css";
-// import "tailwindcss/tailwind.css";
 import type { AppProps } from "next/app";
-import { SessionProvider } from "next-auth/react";
 
 function MyApp({
   Component,
@@ -33,11 +31,9 @@ function MyApp({
         />
         <meta property="og:image" content="https://maxezaki.com/ogp.png" />
       </Head>
-      <SessionProvider session={session}>
-        <Layout router={router}>
-          <Component {...pageProps} key={router.route} />
-        </Layout>
-      </SessionProvider>
+      <Layout router={router}>
+        <Component {...pageProps} key={router.route} />
+      </Layout>
     </>
   );
 }
