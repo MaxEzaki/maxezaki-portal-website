@@ -1,5 +1,5 @@
+import styles from "./footer.module.css";
 import Link from "next/link";
-import { css, cx } from "linaria";
 import {
   FaWordpress,
   FaTwitter,
@@ -8,29 +8,6 @@ import {
   FaSoundcloud,
   FaLinkedin,
 } from "react-icons/fa";
-
-const footer = {
-  wrapper: css`
-    height: 130px;
-    background-color: var(--color-gray20);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  `,
-  icon: css`
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-bottom: 1rem;
-    a {
-      transition: all 0.4s;
-      &:hover {
-        cursor: pointer;
-        opacity: 0.6;
-      }
-    }
-  `,
-};
 
 const icon = [
   {
@@ -65,20 +42,15 @@ const icon = [
   },
 ];
 
-const Footer = ({}) => {
+const Footer = () => {
   return (
-    <footer
-      className={cx(
-        footer.wrapper,
-        "bg-white flex items-center justify-center"
-      )}
-    >
+    <footer className={styles.wrapper}>
       <div>
-        <div className={footer.icon}>
+        <div className={styles.icon}>
           {icon.map((e) => {
             return (
-              <Link href={e.link} key={e.id}>
-                <a target="_blank">{e.name}</a>
+              <Link href={e.link} key={e.id} target="_blank">
+                {e.name}
               </Link>
             );
           })}
