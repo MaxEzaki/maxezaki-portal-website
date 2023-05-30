@@ -4,8 +4,8 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { format } from "date-fns";
 import ContactButton from "./contact-button";
-import { hashtags } from "../../src/data/hashtags";
-import { characters } from "../../src/data/characters";
+import { hashtags } from "../_data/hashtags";
+import { characters } from "../_data/characters";
 import Link from "next/link";
 
 const Card = (props: { type?: string }) => {
