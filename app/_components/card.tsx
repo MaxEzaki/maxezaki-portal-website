@@ -1,6 +1,6 @@
 "use client";
 import styles from "../_components/card.module.css";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { format } from "date-fns";
 import ContactButton from "./contact-button";
@@ -9,20 +9,17 @@ import { characters } from "../_data/characters";
 import Link from "next/link";
 
 const Card = (props: { type?: string }) => {
-  const [filtredCharacter, setFiltredCharacter] = useState(characters);
-  const handleCharacter = (value: string) => {
-    value !== "index"
-      ? setFiltredCharacter(filterCharacter(value))
-      : setFiltredCharacter(filterCharacter("index"));
-  };
   const filterCharacter = (characterType: string) => {
-    let filtredPokemon = characters.filter((e) => e.type === characterType);
-    return filtredPokemon;
+    return characters.filter((e) => e.type === characterType);
   };
 
-  useEffect(() => {
-    setFiltredCharacter(filterCharacter(!props.type ? "index" : "404"));
-  }, [props.type]);
+  const [filtredCharacter, setFiltredCharacter] = useState(
+    filterCharacter(!props.type ? "index" : "404")
+  );
+
+  const handleCharacter = (value: string) => {
+    setFiltredCharacter(filterCharacter(value !== "index" ? value : "index"));
+  };
 
   return (
     <div className={styles.card}>
