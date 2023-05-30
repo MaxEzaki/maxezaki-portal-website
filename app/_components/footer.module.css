@@ -1,0 +1,22 @@
+.wrapper {
+  @apply flex
+    items-center justify-center;
+  background-color: var(--color-gray20);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 130px;
+}
+.icon {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 1rem;
+  a {
+    transition: all 0.4s;
+    &:hover {
+      cursor: pointer;
+      opacity: 0.6;
+    }
+  }
+}
