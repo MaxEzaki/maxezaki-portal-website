@@ -4,4 +4,9 @@
   background-color: #fff;
   /* @apply bg-white flex items-center justify-center; */
   @apply flex items-center justify-center;
+  .inner {
+    width: 470px;
+    margin: 0 auto;
+    @apply flex items-center justify-start;
+  }
 }
