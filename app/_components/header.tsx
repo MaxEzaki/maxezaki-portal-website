@@ -1,16 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
-import { css, cx } from "linaria";
+import styles from "./header.module.css";
 
-const header = css`
-  height: 60px;
-  border-bottom: 1px solid var(--color-gray10);
-  background-color: #fff;
-`;
-
-const Header = ({}) => {
+const Header = () => {
   return (
-    <header className={cx(header, "bg-white flex items-center justify-center")}>
+    <header className={styles.header}>
       <Link href="/">
         <Image
           src="/logo_max.svg"

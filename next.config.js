@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const withLinaria = require("next-linaria");
+// const withLinaria = require("next-linaria");
 const nextConfig = {
   reactStrictMode: true,
   experimental: {
@@ -7,9 +7,10 @@ const nextConfig = {
     appDir: true,
   },
 };
+module.exports = nextConfig;
 
-const linariaOption = {};
-module.exports = withLinaria({
-  ...nextConfig,
-  linaria: linariaOption,
-});
+// const linariaOption = {};
+// module.exports = withLinaria({
+// ...nextConfig,
+// linaria: linariaOption,
+// });
