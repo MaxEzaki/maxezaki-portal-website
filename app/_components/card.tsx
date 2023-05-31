@@ -38,7 +38,7 @@ const Card = (props: { type?: string }) => {
                   style={{
                     objectFit: "cover",
                   }}
-                  loading="eager"
+                  loading="lazy"
                 />
               </div>
               <div className={styles.content}>
