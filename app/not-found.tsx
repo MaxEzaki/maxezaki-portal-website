@@ -5,10 +5,10 @@ import Link from "next/link";
 const NotFound = () => {
   return (
     <div className={styles.wrapper}>
-      {/* <Card type="404" /> */}
-      <p>404 not found page </p>
+      <Card type="404" />
+      {/* <p>404 not found page </p>
       <br />
-      <Link href={"/"}>go to top</Link>
+      <Link href={"/"}>go to top</Link> */}
     </div>
   );
 };

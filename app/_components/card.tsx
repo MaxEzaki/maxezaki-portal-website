@@ -38,6 +38,13 @@ const Card = (props: { type?: string }) => {
                   style={{
                     objectFit: "cover",
                   }}
+                  sizes="470px"
+                  // style={{
+                  //   width: "100%",
+                  //   height: "auto",
+                  // }}
+                  // width={470}
+                  // height={1150}
                   loading="lazy"
                 />
               </div>
@@ -60,7 +67,7 @@ const Card = (props: { type?: string }) => {
                       );
                     })
                   ) : (
-                    <Link href={""} onClick={() => router.push("/")}>
+                    <Link href={""} onClick={() => handleCharacter("index")}>
                       トップページへ戻る &gt;&gt;
                     </Link>
                   )}
