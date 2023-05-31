@@ -58,7 +58,7 @@ const Card = (props: { type?: string }) => {
                       );
                     })
                   ) : (
-                    <Link href={""} onClick={() => filterCharacter("index")}>
+                    <Link href={""} onClick={() => handleCharacter("index")}>
                       トップページへ戻る &gt;&gt;
                     </Link>
                   )}
