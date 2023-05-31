@@ -1,6 +1,7 @@
 .card {
+  @apply px-4;
   .wrapper {
-    width: 470px;
+    max-width: 470px;
     border: 1px solid var(--color-gray10);
     border-radius: 8px;
     background-color: #fff;
