@@ -7,8 +7,10 @@ import ContactButton from "./contact-button";
 import { hashtags } from "../_data/hashtags";
 import { characters } from "../_data/characters";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const Card = (props: { type?: string }) => {
+  const router = useRouter();
   const filterCharacter = (characterType: string) => {
     return characters.filter((e) => e.type === characterType);
   };
@@ -58,7 +60,7 @@ const Card = (props: { type?: string }) => {
                       );
                     })
                   ) : (
-                    <Link href={""} onClick={() => handleCharacter("index")}>
+                    <Link href={""} onClick={() => router.push("/")}>
                       トップページへ戻る &gt;&gt;
                     </Link>
                   )}
