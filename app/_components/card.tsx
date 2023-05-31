@@ -7,8 +7,10 @@ import ContactButton from "./contact-button";
 import { hashtags } from "../_data/hashtags";
 import { characters } from "../_data/characters";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const Card = (props: { type?: string }) => {
+  const router = useRouter();
   const filterCharacter = (characterType: string) => {
     return characters.filter((e) => e.type === characterType);
   };
@@ -36,7 +38,14 @@ const Card = (props: { type?: string }) => {
                   style={{
                     objectFit: "cover",
                   }}
-                  loading="eager"
+                  sizes="470px"
+                  // style={{
+                  //   width: "100%",
+                  //   height: "auto",
+                  // }}
+                  // width={470}
+                  // height={1150}
+                  loading="lazy"
                 />
               </div>
               <div className={styles.content}>
