@@ -1,4 +1,5 @@
 .card {
+  @apply px-4;
   .wrapper {
     width: 470px;
     border: 1px solid var(--color-gray10);
@@ -7,6 +8,7 @@
     margin: 3rem auto;
     @media (max-width: 414px) {
       border-radius: 0;
+      max-width: calc(414px - 2em);
     }
   }
   .name {

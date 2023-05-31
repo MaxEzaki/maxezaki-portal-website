@@ -58,7 +58,9 @@ const Card = (props: { type?: string }) => {
                       );
                     })
                   ) : (
-                    <Link href={"/"}>トップページへ戻る &gt;&gt;</Link>
+                    <Link href={""} onClick={() => handleCharacter("index")}>
+                      トップページへ戻る &gt;&gt;
+                    </Link>
                   )}
                 </div>
                 <p className={styles.time}>
