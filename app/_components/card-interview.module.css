@@ -1,0 +1,22 @@
+.card {
+  @apply relative rounded-lg transition  duration-300 hover:opacity-60;
+  height: 200px;
+  border: 1px solid var(--color-gray10);
+  /* border-radius: 8px; */
+  background-color: #fff;
+  .imageContainer {
+    @apply relative h-32 w-full;
+  }
+  .title {
+    @apply px-3 pt-2 text-xs;
+  }
+  .image {
+    @apply rounded-t-lg;
+  }
+  .link {
+    @apply absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+  }
+}
