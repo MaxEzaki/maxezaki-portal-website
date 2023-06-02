@@ -1,12 +1,12 @@
 .card {
-  @apply relative h-56 rounded-lg  transition duration-300 hover:opacity-60 md:h-52;
+  @apply relative h-56 rounded-lg  transition duration-300 hover:opacity-60 max-sm:h-52 md:h-52;
   border: 1px solid var(--color-gray10);
   background-color: #fff;
   .imageContainer {
     @apply relative h-32 w-full;
   }
   .title {
-    @apply px-3 pt-2 text-sm md:text-xs;
+    @apply px-3 pt-2 max-sm:text-xs md:text-sm;
   }
   .image {
     @apply rounded-t-lg;

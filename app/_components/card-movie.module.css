@@ -1,5 +1,5 @@
 .card {
-  @apply relative h-56 rounded-lg  transition duration-300 hover:opacity-60 md:h-52;
+  @apply relative h-96 rounded-lg  transition duration-300 hover:opacity-60 max-sm:h-60 max-[414px]:h-64 max-[375px]:h-60 md:h-52;
   border: 1px solid var(--color-gray10);
   background-color: #fff;
   .embed {
@@ -8,6 +8,6 @@
     }
   }
   p {
-    @apply px-3 pt-2 text-sm md:text-xs;
+    @apply px-3 pb-3 pt-2 text-lg max-sm:text-xs md:text-xs;
   }
 }
