@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
-        <Link href="/" className="mr-6">
+        <Link href="/">
           <Image
             src="/logo_max.svg"
             alt="Logo of Max_Ezaki"
@@ -15,6 +15,7 @@ const Header = () => {
           />
         </Link>
         <Link href="/interview">Interview</Link>
+        <Link href="/movie">Movie</Link>
       </div>
     </header>
   );
