@@ -1,5 +1,5 @@
 .card {
-  @apply relative h-96 rounded-lg  transition duration-300 hover:opacity-60 max-sm:h-60 max-[414px]:h-64 max-[375px]:h-60 md:h-52;
+  @apply h-96 rounded-lg  transition duration-300 hover:opacity-60 max-sm:h-60 max-[414px]:h-64 max-[375px]:h-60 md:h-52;
   border: 1px solid var(--color-gray10);
   background-color: #fff;
   .embed {
