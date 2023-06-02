@@ -17,7 +17,7 @@ const CardInterview = (props: { list: any }) => {
           className={styles.image}
         />
       </div>
-      <p className={styles.title}>タイトル：{props.list.title}</p>
+      <p className={styles.title}>{props.list.title}</p>
       <Link
         href={props.list.link}
         target="_blank"

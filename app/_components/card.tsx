@@ -7,6 +7,7 @@ import ContactButton from "./contact-button";
 import { hashtags } from "../_data/hashtags";
 import { characters } from "../_data/characters";
 import Link from "next/link";
+import parse, { domToReact } from "html-react-parser";
 
 const Card = (props: { type?: string }) => {
   const filterCharacter = (characterType: string) => {
@@ -19,6 +20,16 @@ const Card = (props: { type?: string }) => {
 
   const handleCharacter = (value: string) => {
     setFiltredCharacter(filterCharacter(value !== "index" ? value : "index"));
+  };
+
+  const replace = (node: any) => {
+    if (node.name === "a") {
+      return (
+        <Link {...node.attribs} rel="noreferrer">
+          {domToReact(node.children)}
+        </Link>
+      );
+    }
   };
 
   return (
@@ -40,10 +51,13 @@ const Card = (props: { type?: string }) => {
                 />
               </div>
               <div className={styles.content}>
-                <p
+                {/* <p
                   className={styles.description}
                   dangerouslySetInnerHTML={{ __html: e.description }}
-                ></p>
+                ></p> */}
+                <p className={styles.description}>
+                  {parse(e.description, { replace })}
+                </p>
                 <div className={styles.tags}>
                   {props.type != "404" ? (
                     hashtags.map((e) => {
