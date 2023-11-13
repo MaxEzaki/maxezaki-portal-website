@@ -51,26 +51,20 @@ const Card = (props: { type?: string }) => {
                 />
               </div>
               <div className={styles.content}>
-                {/* <p
-                  className={styles.description}
-                  dangerouslySetInnerHTML={{ __html: e.description }}
-                ></p> */}
                 <p className={styles.description}>
                   {parse(e.description, { replace })}
                 </p>
                 <div className={styles.tags}>
                   {props.type != "404" ? (
-                    hashtags.map((e) => {
-                      return (
-                        <a
-                          className={styles.tagItem}
-                          key={e.id}
-                          onClick={() => handleCharacter(e.value)}
-                        >
-                          #{e.name}
-                        </a>
-                      );
-                    })
+                    hashtags.map((e) => (
+                      <a
+                        className={styles.tagItem}
+                        key={e.id}
+                        onClick={() => handleCharacter(e.value)}
+                      >
+                        #{e.name}
+                      </a>
+                    ))
                   ) : (
                     <Link href={""} onClick={() => handleCharacter("index")}>
                       トップページへ戻る &gt;&gt;

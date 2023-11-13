@@ -2,6 +2,11 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./header.module.css";
 
+const navLinks = [
+  { href: "/interview", label: "Interview" },
+  { href: "/movie", label: "Movie" },
+];
+
 const Header = () => {
   return (
     <header className={styles.header}>
@@ -14,8 +19,11 @@ const Header = () => {
             height={30}
           />
         </Link>
-        <Link href="/interview">Interview</Link>
-        <Link href="/movie">Movie</Link>
+        {navLinks.map((link) => (
+          <Link key={link.href} href={link.href}>
+            {link.label}
+          </Link>
+        ))}
       </div>
     </header>
   );

@@ -42,22 +42,20 @@ const icon = [
   },
 ];
 
+const currentYear = new Date().getFullYear();
+
 const Footer = () => {
   return (
     <footer className={styles.wrapper}>
       <div>
         <div className={styles.icon}>
-          {icon.map((e) => {
-            return (
-              <Link href={e.link} key={e.id} target="_blank">
-                {e.name}
-              </Link>
-            );
-          })}
+          {icon.map((e) => (
+            <Link href={e.link} key={e.id} target="_blank">
+              {e.name}
+            </Link>
+          ))}
         </div>
-        <p>
-          &copy; 2018-{new Date().getFullYear()} Max_Ezaki All Rights Reserved.
-        </p>
+        <p>&copy; 2018-{currentYear} Max_Ezaki All Rights Reserved.</p>
       </div>
     </footer>
   );
