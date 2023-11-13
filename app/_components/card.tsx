@@ -1,6 +1,6 @@
 "use client";
 import styles from "../_components/card.module.css";
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import Image from "next/image";
 import { format } from "date-fns";
 import ContactButton from "./contact-button";
@@ -10,11 +10,11 @@ import Link from "next/link";
 import parse, { domToReact } from "html-react-parser";
 
 const Card = (props: { type?: string }) => {
-  const filterCharacter = (characterType: string) => {
+  const filterCharacter = useCallback((characterType: string) => {
     return characters.filter((e) => e.type === characterType);
-  };
+  }, []);
 
-  const [filtredCharacter, setFiltredCharacter] = useState(
+  const [filtredCharacter, setFiltredCharacter] = useState(() =>
     filterCharacter(!props.type ? "index" : "404")
   );
 
