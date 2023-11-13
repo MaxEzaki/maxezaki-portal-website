@@ -1,6 +1,6 @@
 "use client";
 import styles from "../_components/card.module.css";
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import Image from "next/image";
 import { format } from "date-fns";
 import ContactButton from "./contact-button";
@@ -10,11 +10,11 @@ import Link from "next/link";
 import parse, { domToReact } from "html-react-parser";
 
 const Card = (props: { type?: string }) => {
-  const filterCharacter = (characterType: string) => {
+  const filterCharacter = useCallback((characterType: string) => {
     return characters.filter((e) => e.type === characterType);
-  };
+  }, []);
 
-  const [filtredCharacter, setFiltredCharacter] = useState(
+  const [filtredCharacter, setFiltredCharacter] = useState(() =>
     filterCharacter(!props.type ? "index" : "404")
   );
 
@@ -51,26 +51,20 @@ const Card = (props: { type?: string }) => {
                 />
               </div>
               <div className={styles.content}>
-                {/* <p
-                  className={styles.description}
-                  dangerouslySetInnerHTML={{ __html: e.description }}
-                ></p> */}
                 <p className={styles.description}>
                   {parse(e.description, { replace })}
                 </p>
                 <div className={styles.tags}>
                   {props.type != "404" ? (
-                    hashtags.map((e) => {
-                      return (
-                        <a
-                          className={styles.tagItem}
-                          key={e.id}
-                          onClick={() => handleCharacter(e.value)}
-                        >
-                          #{e.name}
-                        </a>
-                      );
-                    })
+                    hashtags.map((e) => (
+                      <a
+                        className={styles.tagItem}
+                        key={e.id}
+                        onClick={() => handleCharacter(e.value)}
+                      >
+                        #{e.name}
+                      </a>
+                    ))
                   ) : (
                     <Link href={""} onClick={() => handleCharacter("index")}>
                       トップページへ戻る &gt;&gt;

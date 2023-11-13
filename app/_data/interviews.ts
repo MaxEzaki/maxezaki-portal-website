@@ -1,4 +1,6 @@
-export const interviews = [
+import { Interview } from "../types/index.d";
+
+export const interviews: Interview[] = [
   {
     id: 1,
     title:

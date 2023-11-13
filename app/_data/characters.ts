@@ -1,4 +1,6 @@
-export const characters = [
+import { Character } from "../types/index.d";
+
+export const characters: Character[] = [
   {
     name: "Max_Ezaki",
     image: {
