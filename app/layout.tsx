@@ -45,9 +45,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="jp">
-      <head>
-        <GoogleAnalytics />
-      </head>
+      <GoogleAnalytics />
       <body suppressHydrationWarning={true}>
         <div className={styles.wrapper}>
           <Header />
