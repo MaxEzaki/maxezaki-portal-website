@@ -3,7 +3,7 @@ import "./globals.css";
 import styles from "./layout.module.css";
 import Header from "./_components/header";
 import Footer from "./_components/footer";
-
+import GoogleAnalytics from "./_components/GoogleAnalytics";
 const siteName = "Max Ezaki - Portal Website";
 const description = "Max Ezakiのポータルウェブサイト";
 const url = "https://maxezaki.com";
@@ -45,6 +45,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="jp">
+      <head>
+        <GoogleAnalytics />
+      </head>
       <body suppressHydrationWarning={true}>
         <div className={styles.wrapper}>
           <Header />
