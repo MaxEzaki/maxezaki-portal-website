@@ -95,7 +95,7 @@ const Card = (props: { type?: string }) => {
                       </a>
                     ))
                   ) : (
-                    <Link href={""} onClick={() => handleCharacter("index")}>
+                    <Link href={"/"} onClick={() => handleCharacter("index")}>
                       トップページへ戻る &gt;&gt;
                     </Link>
                   )}
