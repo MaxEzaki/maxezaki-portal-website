@@ -8,15 +8,34 @@ import { hashtags } from "../_data/hashtags";
 import { characters } from "../_data/characters";
 import Link from "next/link";
 import parse, { domToReact } from "html-react-parser";
+import { useSearchParams } from "next/navigation";
 
 const Card = (props: { type?: string }) => {
+  const searchParams = useSearchParams();
+
   const filterCharacter = useCallback((characterType: string) => {
     return characters.filter((e) => e.type === characterType);
   }, []);
 
+  // URLパラメータからtypeを取得
+  const initialType = useCallback(() => {
+    if (props.type === "404") return "404";
+    const typeParam = searchParams?.get("type");
+    if (typeParam && characters.some((c) => c.type === typeParam)) {
+      return typeParam;
+    }
+    return "index";
+  }, [props.type, searchParams]);
+
   const [filtredCharacter, setFiltredCharacter] = useState(() =>
-    filterCharacter(!props.type ? "index" : "404")
+    filterCharacter(initialType())
   );
+
+  // URLパラメータが変更されたときに表示を更新
+  useEffect(() => {
+    const type = initialType();
+    setFiltredCharacter(filterCharacter(type));
+  }, [filterCharacter, initialType]);
 
   const handleCharacter = (value: string) => {
     setFiltredCharacter(filterCharacter(value !== "index" ? value : "index"));
