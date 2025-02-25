@@ -34,6 +34,8 @@ const Card = (props: { type?: string }) => {
 
   // 画像の事前読み込み
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
     const preloadImages = async () => {
       try {
         await Promise.all(
@@ -51,7 +53,6 @@ const Card = (props: { type?: string }) => {
         );
       } catch (error) {
         console.error("画像のプリロード中にエラーが発生しました:", error);
-        // エラーが発生しても、アプリケーションの動作に影響を与えないようにする
       }
     };
 
