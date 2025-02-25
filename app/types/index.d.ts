@@ -15,6 +15,7 @@ export interface Character {
   image: {
     src: string;
     alt: string;
+    blurDataURL?: string;
   };
   description: string;
   type: string;

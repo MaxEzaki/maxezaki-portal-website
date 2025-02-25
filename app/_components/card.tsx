@@ -1,6 +1,6 @@
 "use client";
 import styles from "../_components/card.module.css";
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import Image from "next/image";
 import { format } from "date-fns";
 import ContactButton from "./contact-button";
@@ -32,6 +32,32 @@ const Card = (props: { type?: string }) => {
     }
   };
 
+  // 画像の事前読み込み
+  useEffect(() => {
+    const preloadImages = async () => {
+      try {
+        await Promise.all(
+          characters.map((character) => {
+            return new Promise<HTMLImageElement>((resolve, reject) => {
+              const img = document.createElement("img");
+              img.onload = () => resolve(img);
+              img.onerror = () =>
+                reject(
+                  new Error(`Failed to load image: ${character.image.src}`)
+                );
+              img.src = character.image.src;
+            });
+          })
+        );
+      } catch (error) {
+        console.error("画像のプリロード中にエラーが発生しました:", error);
+        // エラーが発生しても、アプリケーションの動作に影響を与えないようにする
+      }
+    };
+
+    preloadImages();
+  }, []);
+
   return (
     <div className={styles.card}>
       <div className={styles.wrapper}>
@@ -48,7 +74,9 @@ const Card = (props: { type?: string }) => {
                   style={{
                     objectFit: "cover",
                   }}
-                  loading="eager"
+                  priority={index === 0}
+                  loading={index === 0 ? "eager" : "lazy"}
+                  quality={75}
                 />
               </div>
               <div className={styles.content}>
