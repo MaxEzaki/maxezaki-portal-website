@@ -1,6 +1,6 @@
 "use client";
 import styles from "../_components/card.module.css";
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import Image from "next/image";
 import { format } from "date-fns";
 import ContactButton from "./contact-button";
@@ -32,6 +32,33 @@ const Card = (props: { type?: string }) => {
     }
   };
 
+  // 画像の事前読み込み
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const preloadImages = async () => {
+      try {
+        await Promise.all(
+          characters.map((character) => {
+            return new Promise<HTMLImageElement>((resolve, reject) => {
+              const img = document.createElement("img");
+              img.onload = () => resolve(img);
+              img.onerror = () =>
+                reject(
+                  new Error(`Failed to load image: ${character.image.src}`)
+                );
+              img.src = character.image.src;
+            });
+          })
+        );
+      } catch (error) {
+        console.error("画像のプリロード中にエラーが発生しました:", error);
+      }
+    };
+
+    preloadImages();
+  }, []);
+
   return (
     <div className={styles.card}>
       <div className={styles.wrapper}>
@@ -44,10 +71,13 @@ const Card = (props: { type?: string }) => {
                   src={e.image.src}
                   alt={e.image.alt}
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   style={{
                     objectFit: "cover",
                   }}
-                  loading="eager"
+                  priority={index === 0}
+                  loading={index === 0 ? "eager" : "lazy"}
+                  quality={75}
                 />
               </div>
               <div className={styles.content}>
@@ -66,7 +96,7 @@ const Card = (props: { type?: string }) => {
                       </a>
                     ))
                   ) : (
-                    <Link href={""} onClick={() => handleCharacter("index")}>
+                    <Link href={"/"} onClick={() => handleCharacter("index")}>
                       トップページへ戻る &gt;&gt;
                     </Link>
                   )}

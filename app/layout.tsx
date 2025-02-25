@@ -4,11 +4,12 @@ import styles from "./layout.module.css";
 import Header from "./_components/header";
 import Footer from "./_components/footer";
 import GoogleAnalytics from "./_components/GoogleAnalytics";
+import { Metadata } from "next";
 const siteName = "Max Ezaki - Portal Website";
 const description = "Max Ezakiのポータルウェブサイト";
 const url = "https://maxezaki.com";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: {
     default: siteName,
     /** `next-seo`の`titleTemplate`に相当する機能 */

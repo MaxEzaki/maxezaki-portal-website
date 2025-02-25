@@ -23,6 +23,7 @@ const Header = () => {
             alt="Logo of Max_Ezaki"
             width={30}
             height={30}
+            priority
           />
         </Link>
         {navLinks.map((link) => (
