@@ -44,6 +44,7 @@ const Card = (props: { type?: string }) => {
                   src={e.image.src}
                   alt={e.image.alt}
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   style={{
                     objectFit: "cover",
                   }}
