@@ -1,12 +1,10 @@
-import styles from "./page.module.css";
 import Card from "./_components/card";
+import { Suspense } from "react";
 
-const NotFound = () => {
+export default function NotFound() {
   return (
-    <div className={styles.wrapper}>
+    <Suspense fallback={null}>
       <Card type="404" />
-    </div>
+    </Suspense>
   );
-};
-
-export default NotFound;
+}
