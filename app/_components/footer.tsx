@@ -1,5 +1,5 @@
+import styles from "./footer.module.css";
 import Link from "next/link";
-import { css, cx } from "linaria";
 import {
   FaWordpress,
   FaTwitter,
@@ -8,29 +8,6 @@ import {
   FaSoundcloud,
   FaLinkedin,
 } from "react-icons/fa";
-
-const footer = {
-  wrapper: css`
-    height: 130px;
-    background-color: var(--color-gray20);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  `,
-  icon: css`
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-bottom: 1rem;
-    a {
-      transition: all 0.4s;
-      &:hover {
-        cursor: pointer;
-        opacity: 0.6;
-      }
-    }
-  `,
-};
 
 const icon = [
   {
@@ -65,27 +42,20 @@ const icon = [
   },
 ];
 
-const Footer = ({}) => {
+const currentYear = new Date().getFullYear();
+
+const Footer = () => {
   return (
-    <footer
-      className={cx(
-        footer.wrapper,
-        "bg-white flex items-center justify-center"
-      )}
-    >
+    <footer className={styles.wrapper}>
       <div>
-        <div className={footer.icon}>
-          {icon.map((e) => {
-            return (
-              <Link href={e.link} key={e.id}>
-                <a target="_blank">{e.name}</a>
-              </Link>
-            );
-          })}
+        <div className={styles.icon}>
+          {icon.map((e) => (
+            <Link href={e.link} key={e.id} target="_blank">
+              {e.name}
+            </Link>
+          ))}
         </div>
-        <p>
-          &copy; 2018-{new Date().getFullYear()} Max_Ezaki All Rights Reserved.
-        </p>
+        <p>&copy; 2018-{currentYear} Max_Ezaki All Rights Reserved.</p>
       </div>
     </footer>
   );
