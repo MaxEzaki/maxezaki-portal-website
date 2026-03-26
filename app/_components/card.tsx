@@ -1,6 +1,6 @@
 "use client";
 import styles from "../_components/card.module.css";
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback, useEffect, useMemo, useRef } from "react";
 import Image from "next/image";
 import { format } from "date-fns";
 import ContactButton from "./contact-button";
@@ -27,18 +27,23 @@ const Card = (props: { type?: string }) => {
     return "index";
   }, [props.type, searchParams]);
 
-  const [filtredCharacter, setFiltredCharacter] = useState(() =>
-    filterCharacter(initialType())
+  const paramType = useMemo(() => initialType(), [initialType]);
+  const [manualType, setManualType] = useState<string | null>(null);
+  const prevParamType = useRef(paramType);
+
+  // URLパラメータが変更されたときに手動選択をリセット
+  if (prevParamType.current !== paramType) {
+    prevParamType.current = paramType;
+    setManualType(null);
+  }
+
+  const filtredCharacter = useMemo(
+    () => filterCharacter(manualType ?? paramType),
+    [filterCharacter, manualType, paramType]
   );
 
-  // URLパラメータが変更されたときに表示を更新
-  useEffect(() => {
-    const type = initialType();
-    setFiltredCharacter(filterCharacter(type));
-  }, [filterCharacter, initialType]);
-
   const handleCharacter = (value: string) => {
-    setFiltredCharacter(filterCharacter(value !== "index" ? value : "index"));
+    setManualType(value !== "index" ? value : "index");
   };
 
   const replace = (node: any) => {
