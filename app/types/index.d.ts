@@ -3,6 +3,8 @@ export interface Interview {
   image: string;
   title: string;
   link: string;
+  /** リンク先が存在しなくなった記事は true にして一覧から除外する */
+  hidden?: boolean;
 }
 
 export interface Movie {
