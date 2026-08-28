@@ -7,6 +7,7 @@ export const interviews: Interview[] = [
       "人と仕事していることを忘れない誰もが主体的に動ける環境で活躍するPMに聞いてみた",
     link: "https://note.com/showcase/n/n6f199725e766",
     image: "/rectangle_large_type_2_da47714e2106ab33ccdabb0a6733f0cf.webp",
+    hidden: true,
   },
   {
     id: 2,

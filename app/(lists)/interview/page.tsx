@@ -4,9 +4,11 @@ import CardInterview from "../../_components/card-interview";
 const Page = () => {
   return (
     <>
-      {interviews.map((e) => (
-        <CardInterview list={e} key={e.id} />
-      ))}
+      {interviews
+        .filter((e) => !e.hidden)
+        .map((e) => (
+          <CardInterview list={e} key={e.id} />
+        ))}
     </>
   );
 };
