@@ -113,7 +113,7 @@ const interviews = [
   },
 ];
 
-const blogHistory = [
+const blogHistory: { when: string; text: React.ReactNode }[] = [
   {
     when: "2005 年 4 月ごろ",
     text: "携帯サイト「魔法の i らんど」が一世を風靡していた時代に、「無料 HP ふりーぺ」で携帯サイト「リズム音痴」を設立（ふりーぺは 2013 年 7 月 1 日にサービス終了）",
@@ -128,13 +128,29 @@ const blogHistory = [
   },
   {
     when: "2012〜2017 年",
-    text: "275 本を書く。ブロガーズフェスティバルや Blog Crowd に顔を出し、2014 年には 200 人の前で LT をした",
+    text: (
+      <>
+        {blogPost(
+          "/2014/07/28/2014_bloggers_festival/",
+          "ブロガーズフェスティバル"
+        )}
+        や{blogPost("/2014/04/21/blog-crowd-vol1/", "Blog Crowd")}
+        に顔を出し、2014 年には
+        {blogPost(
+          "/2014/08/27/bloggersfestival2014/",
+          "200 人の前で LT をした"
+        )}
+      </>
+    ),
   },
   {
     when: "2026 年",
-    text: "WordPress をやめて Astro で作り直した。古い記事は当時のまま残している",
+    text: "AIが快適すぎて脱WordPressしました",
   },
 ];
+
+const debutYear = 2014;
+const yearsSinceDebut = new Date().getFullYear() - debutYear;
 
 const Page = () => {
   return (
@@ -177,8 +193,8 @@ const Page = () => {
               >
                 @unificat
               </Link>{" "}
-              さんが付けてくれたキャッチコピーで、当時は本人たちもよく分かっていませんでした。12
-              年経ったいまも、たぶん現役です。
+              さんが付けてくれたキャッチコピーで、当時は本人たちもよく分かっていませんでした。
+              {yearsSinceDebut} 年経ったいまも、たぶん現役です。
             </p>
           </div>
 
