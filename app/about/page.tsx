@@ -86,7 +86,7 @@ const timeline: { place: string; text: React.ReactNode }[] = [
   },
   {
     place: "日本へ帰国、IT 業界へ",
-    text: "塾・予備校の非常勤講師（担当は数学、理科、英語、ときどき国語。社会はホントにムリ。最後はイギリスで教えていました）を経て、何を思ったのか帰国後にプログラマーに。画面越しに英数字の羅列をターンッ！していく日々です。当時のモットーは「考える事をしないのなら人間やめちまえ」。これは今でも変わりません。",
+    text: "塾・予備校の非常勤講師（担当は数学、理科、英語、ときどき国語。社会はホントにムリ。最後はイギリスで教えていました）を経て、何を思ったのか帰国後にエンジニアに。画面越しに英数字の羅列をターンッ！していく日々です。当時のモットーは「考える事をしないのなら人間やめちまえ」。これは今でも変わりません。",
   },
 ];
 
@@ -158,10 +158,10 @@ const Page = () => {
       <div className={styles.panel}>
         <div className={styles.imageContainer}>
           <Image
-            src="/max_404.jpeg"
+            src="/max_index.jpeg"
             alt="Max_Ezaki"
             width={800}
-            height={533}
+            height={570}
             priority
             className={styles.image}
           />
