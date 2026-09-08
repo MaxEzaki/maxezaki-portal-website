@@ -35,7 +35,17 @@ export const metadata: Metadata = {
   },
 };
 
-const timeline = [
+const blogPost = (path: string, label: string) => (
+  <Link
+    href={`https://rhythm-onchi.com${path}`}
+    target="_blank"
+    rel="noreferrer"
+  >
+    {label}
+  </Link>
+);
+
+const timeline: { place: string; text: React.ReactNode }[] = [
   {
     place: "ドイツで生まれる",
     text: "ドイツ人と日本人のあいだに生まれました。マックスは本名です。",
@@ -46,11 +56,33 @@ const timeline = [
   },
   {
     place: "ドイツへ",
-    text: "留学。当時の暮らしぶりは、取材記事のタイトルにある「極貧ドイツ留学生」のとおりです。",
+    text: (
+      <>
+        留学。当時の暮らしぶりは、取材記事のタイトルにある「
+        <Link
+          href="https://sidelines.jp/post-3117"
+          target="_blank"
+          rel="noreferrer"
+        >
+          極貧ドイツ留学生
+        </Link>
+        」のとおりです。
+      </>
+    ),
   },
   {
     place: "イギリス（ロンドン）へ",
-    text: "2011〜2012 年ごろ滞在。ブログ「リズム音痴」の初期の記事（SIM フリー iPhone、MacBook Air、モレスキン、パーカッション専門店）はロンドンで書いたものです。",
+    text: (
+      <>
+        2011 年末に{blogPost("/2011/12/20/in_uk_now/", "渡英")}
+        し、2012 年ごろまで滞在。ブログ「リズム音痴」の初期の記事（
+        {blogPost("/2012/01/28/simfree-iphone4s-uk/", "SIM フリー iPhone")}、
+        {blogPost("/2012/02/10/mba_user/", "MacBook Air")}、
+        {blogPost("/2012/05/31/moleskinebeer/", "モレスキン")}、
+        {blogPost("/2012/03/02/acton_perc/", "パーカッション専門店")}
+        ）はロンドンで書いたものです。
+      </>
+    ),
   },
   {
     place: "日本へ帰国、IT 業界へ",
@@ -102,8 +134,16 @@ const Page = () => {
 
           <div className={styles.lead}>
             <p>
-              ドイツ生まれ、日本育ち。ドイツ→日本→ドイツ→イギリス→日本と動いて、いまはプログラマーをしています。パーカッションを叩き、ソーセージを作り、ビールを飲む。2014
-              年からフリー素材サイト「ぱくたそ」のモデルもやっています。
+              ドイツ生まれ、日本育ち。ドイツ→日本→ドイツ→イギリス→日本と動いて、今は一応エンジニアとして働いてます。パーカッションを叩き、ソーセージを作り、ビールを飲む。2014
+              年からフリー素材サイト「
+              <Link
+                href="https://www.pakutaso.com/Max_Ezaki.html"
+                target="_blank"
+                rel="noreferrer"
+              >
+                ぱくたそ
+              </Link>
+              」のモデルもやっています。
             </p>
             <p>
               「現役ドイツ人ハーフ」という肩書きは、ぱくたそデビューのときに{" "}
@@ -138,9 +178,16 @@ const Page = () => {
             <h3>フリー素材モデル（ぱくたそ）</h3>
             <p>
               2014 年 6 月、「フリー写真素材
-              PAKUTASO/ぱくたそ」でモデルデビュー。企画名は「日本よ、これがフリー素材だ!!
-              —
-              現役ドイツ人ハーフの使える写真素材」。ラーメン屋、古民家、オフィスで変な顔をしています。素材は{" "}
+              PAKUTASO/ぱくたそ」でモデルデビュー。企画名は「
+              <Link
+                href="https://www.pakutaso.com/maxfreephoto.html"
+                target="_blank"
+                rel="noreferrer"
+              >
+                日本よ、これがフリー素材だ!! —
+                現役ドイツ人ハーフの使える写真素材
+              </Link>
+              」。ラーメン屋、古民家、オフィスで変な顔をしています。素材は{" "}
               <Link
                 href="https://www.pakutaso.com/Max_Ezaki.html"
                 target="_blank"
@@ -170,13 +217,13 @@ const Page = () => {
             <h3>絵</h3>
             <p>
               たまに描きます。ハーフだけで作った「ハーフ芸術集団
-              HArts」で企画運営と出展をしていました。作風は抽象画。「エロいものを如何にエロく見せなくさせるか」がコンセプト。
+              HArts」で企画運営と出展をしていました。作風は抽象画。
             </p>
 
             <h3>好きなもの</h3>
             <p>
               ビール、ソーセージ（自分で作る）、ハンバーガー（自分で作る）、Apple
-              製品（貢ぐ）、モレスキン。ドイツのビールとソーセージのコンボは、日本で言うなら「和菓子とお茶」ぐらいの破壊力です。
+              製品（貢ぐ）。ドイツのビールとソーセージのコンボは、日本で言うなら「和菓子とお茶」ぐらいの破壊力です。
             </p>
           </section>
 
@@ -207,42 +254,20 @@ const Page = () => {
           <section className={styles.section}>
             <h2>連絡先</h2>
             <p>
-              感想、お仕事のご相談は Contact からお願いします。フォームは
-              Jotform（外部サービス）に送信されます。返信には時間がかかることがあります。
+              感想、お仕事のご相談は Contact
+              からお願いします。返信には時間がかかることがあります。
             </p>
-            <ul className={styles.list}>
-              <li>
-                X:{" "}
-                <Link
-                  href="https://twitter.com/Max_Ezaki"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  @Max_Ezaki
-                </Link>
-              </li>
-              <li>
-                Instagram:{" "}
-                <Link
-                  href="https://www.instagram.com/max_ezaki/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  @max_ezaki
-                </Link>
-              </li>
-              <li>
-                ブログ:{" "}
-                <Link
-                  href="https://rhythm-onchi.com"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  リズム音痴
-                </Link>
-                （2011 年から書いています）
-              </li>
-            </ul>
+            <p>
+              ブログ「
+              <Link
+                href="https://rhythm-onchi.com"
+                target="_blank"
+                rel="noreferrer"
+              >
+                リズム音痴
+              </Link>
+              」も 2011 年から書いています。
+            </p>
             <div className={styles.contact}>
               <ContactButton />
             </div>
