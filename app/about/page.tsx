@@ -113,6 +113,29 @@ const interviews = [
   },
 ];
 
+const blogHistory = [
+  {
+    when: "2005 年 4 月ごろ",
+    text: "携帯サイト「魔法の i らんど」が一世を風靡していた時代に、「無料 HP ふりーぺ」で携帯サイト「リズム音痴」を設立（ふりーぺは 2013 年 7 月 1 日にサービス終了）",
+  },
+  {
+    when: "2009 年 2 月",
+    text: "fc2 が流行り始めたので、fc2 ブログ「リズム音痴」を開設",
+  },
+  {
+    when: "2011 年 6 月",
+    text: "独自ドメインが欲しいがために一念発起し、WordPress 版「リズム音痴」を新設。開設当初は「音楽について色々書いてやる！！」だったが気付けばほとんど書かず、Mac や iPhone、ドイツ・イギリスでの生活や旅、食べたものを書く場所になった",
+  },
+  {
+    when: "2012〜2017 年",
+    text: "275 本を書く。ブロガーズフェスティバルや Blog Crowd に顔を出し、2014 年には 200 人の前で LT をした",
+  },
+  {
+    when: "2026 年",
+    text: "WordPress をやめて Astro で作り直した。古い記事は当時のまま残している",
+  },
+];
+
 const Page = () => {
   return (
     <div className={styles.wrapper}>
@@ -121,8 +144,8 @@ const Page = () => {
           <Image
             src="/max_404.jpeg"
             alt="Max_Ezaki"
-            fill
-            sizes="(max-width: 768px) 100vw, 700px"
+            width={800}
+            height={533}
             priority
             className={styles.image}
           />
@@ -173,6 +196,30 @@ const Page = () => {
           </section>
 
           <section className={styles.section}>
+            <h2>リズム音痴について</h2>
+            <p>
+              ブログ「
+              <Link
+                href="https://rhythm-onchi.com"
+                target="_blank"
+                rel="noreferrer"
+              >
+                リズム音痴
+              </Link>
+              」の遍歴です。
+            </p>
+            <ol className={styles.timeline}>
+              {blogHistory.map((e) => (
+                <li key={e.when}>
+                  <span className={styles.place}>{e.when}</span>
+                  <br />
+                  {e.text}
+                </li>
+              ))}
+            </ol>
+          </section>
+
+          <section className={styles.section}>
             <h2>やっていること</h2>
 
             <h3>フリー素材モデル（ぱくたそ）</h3>
@@ -205,7 +252,7 @@ const Page = () => {
               <Link href="https://bommer.me" target="_blank" rel="noreferrer">
                 BOMmER
               </Link>{" "}
-              でパーカッションを担当。カホンがメイン。ほかにもいろいろなバンドやアーティストと共演・サポートしてきました。荷物量がエグいので、ライブのときはタクシー絶対。
+              でパーカッションを担当。ほかにもいろいろなバンドやアーティストと共演・サポートしてきました。荷物量がエグいので、ライブのときはタクシー絶対。
             </p>
 
             <h3>司会・動画</h3>
@@ -222,8 +269,13 @@ const Page = () => {
 
             <h3>好きなもの</h3>
             <p>
-              ビール、ソーセージ（自分で作る）、ハンバーガー（自分で作る）、Apple
-              製品（貢ぐ）。ドイツのビールとソーセージのコンボは、日本で言うなら「和菓子とお茶」ぐらいの破壊力です。
+              ビール、ソーセージ
+              <span className={styles.note}>（自分で作る）</span>
+              、ハンバーガー
+              <span className={styles.note}>（自分で作る）</span>
+              、Apple 製品
+              <span className={styles.note}>（貢ぐ）</span>
+              。ドイツのビールとソーセージのコンボは、日本で言うなら「和菓子とお茶」ぐらいの破壊力です。
             </p>
           </section>
 
@@ -256,17 +308,6 @@ const Page = () => {
             <p>
               感想、お仕事のご相談は Contact
               からお願いします。返信には時間がかかることがあります。
-            </p>
-            <p>
-              ブログ「
-              <Link
-                href="https://rhythm-onchi.com"
-                target="_blank"
-                rel="noreferrer"
-              >
-                リズム音痴
-              </Link>
-              」も 2011 年から書いています。
             </p>
             <div className={styles.contact}>
               <ContactButton />
