@@ -7,6 +7,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
     },
     {
+      url: "https://maxezaki.com/about",
+      lastModified: new Date(),
+    },
+    {
       url: "https://maxezaki.com/interview",
       lastModified: new Date(),
     },

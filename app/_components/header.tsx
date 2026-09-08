@@ -4,6 +4,7 @@ import styles from "./header.module.css";
 import { FaGithub } from "react-icons/fa";
 
 const navLinks = [
+  { href: "/about", label: "About", icon: null },
   { href: "/interview", label: "Interview", icon: null },
   { href: "/movie", label: "Movie", icon: null },
   {

@@ -1,3 +1,4 @@
+"use client";
 import styles from "./contact-button.module.css";
 
 const clickHandle = () => {

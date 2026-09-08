@@ -10,6 +10,7 @@ const description = "Max Ezakiのポータルウェブサイト";
 const url = "https://maxezaki.com";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(url),
   title: {
     default: siteName,
     /** `next-seo`の`titleTemplate`に相当する機能 */

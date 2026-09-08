@@ -1,0 +1,118 @@
+.wrapper {
+  @apply my-10 w-full px-4;
+}
+
+.panel {
+  width: 700px;
+  max-width: 100%;
+  margin: 0 auto;
+  border: 1px solid var(--color-gray10);
+  border-radius: 8px;
+  background-color: #fff;
+  @media (max-width: 414px) {
+    border-radius: 0;
+  }
+}
+
+.imageContainer {
+  width: 100%;
+  border-bottom: 1px solid var(--color-gray10);
+  .image {
+    display: block;
+    width: 100%;
+    height: auto;
+    @apply rounded-t-lg;
+  }
+}
+
+.body {
+  @apply px-6 pb-6 pt-5 max-sm:px-4;
+  line-height: 1.8;
+  a {
+    color: var(--color-blue);
+    transition: all 0.4s;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+.name {
+  font-size: 1.6rem;
+  font-weight: bold;
+  line-height: 1.3;
+}
+
+.title {
+  color: var(--color-gray40);
+  @apply mb-4;
+}
+
+.lead {
+  @apply mb-8;
+}
+
+.section {
+  @apply mb-8;
+  h2 {
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-bottom: 1px solid var(--color-gray10);
+    @apply mb-3 pb-1;
+  }
+  h3 {
+    font-weight: bold;
+    @apply mb-1 mt-4;
+  }
+  p {
+    @apply mb-3;
+  }
+}
+
+.timeline {
+  @apply mb-3 pl-1;
+  li {
+    position: relative;
+    padding-left: 1.5rem;
+    @apply mb-3;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0.3rem;
+      top: 0.7rem;
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      background-color: var(--color-blue);
+    }
+    &:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      left: calc(0.3rem + 0.25rem - 1px);
+      top: 1.3rem;
+      bottom: -0.9rem;
+      width: 2px;
+      background-color: var(--color-gray10);
+    }
+  }
+  .place {
+    font-weight: bold;
+  }
+}
+
+.list {
+  list-style: disc;
+  @apply mb-3 pl-5;
+  li {
+    @apply mb-1;
+  }
+}
+
+.note {
+  color: var(--color-gray40);
+  font-size: 0.85rem;
+}
+
+.contact {
+  @apply flex items-center justify-center pb-2 pt-2;
+}
