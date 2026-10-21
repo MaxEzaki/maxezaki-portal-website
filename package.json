@@ -11,7 +11,7 @@
   "dependencies": {
     "date-fns": "^2.29.2",
     "html-react-parser": "^5.1.8",
-    "next": "^16.2.1",
+    "next": "^16.4.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^4.6.0"
@@ -23,7 +23,7 @@
     "@types/react-dom": "^19.0.0",
     "autoprefixer": "^10.4.13",
     "eslint": "^9.0.0",
-    "eslint-config-next": "^16.2.1",
+    "eslint-config-next": "^16.4.2",
     "eslint-plugin-tailwindcss": "^3.7.0",
     "postcss": "^8.4.19",
     "postcss-import": "^15.0.0",
