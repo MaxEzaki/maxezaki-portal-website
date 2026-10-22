@@ -72,6 +72,7 @@ const Card = (props: { type?: string }) => {
   );
 
   const [manualType, setManualType] = useState<string | null>(null);
+  const [visibleImageLoaded, setVisibleImageLoaded] = useState(false);
   const [preloadOthers, setPreloadOthers] = useState(false);
 
   // クエリが変わったら手動選択をリセットする
@@ -92,10 +93,18 @@ const Card = (props: { type?: string }) => {
     [filterCharacter, activeType]
   );
 
-  // 表示中の画像の取得と帯域を奪い合わないよう、アイドルまで待ってから
-  // 残りの画像を裏で温める。
+  // 表示中の画像と帯域を奪い合わないよう、2段階で待ってから残りを温める。
+  // requestIdleCallback はメインスレッドの空きしか示さず回線の空きは示さないため、
+  // 先に表示中の画像の取得完了を待つ。画像が取得できなかった場合に先読みが
+  // 永久に始まらないよう、待ち時間には上限を設ける。
   useEffect(() => {
-    if (isNotFound) return;
+    if (isNotFound || preloadOthers) return;
+
+    if (!visibleImageLoaded) {
+      const id = window.setTimeout(() => setVisibleImageLoaded(true), 5000);
+      return () => window.clearTimeout(id);
+    }
+
     const w = window as typeof window & {
       requestIdleCallback?: (
         cb: () => void,
@@ -111,7 +120,7 @@ const Card = (props: { type?: string }) => {
     }
     const id = window.setTimeout(() => setPreloadOthers(true), 1500);
     return () => window.clearTimeout(id);
-  }, [isNotFound]);
+  }, [isNotFound, visibleImageLoaded, preloadOthers]);
 
   const handleCharacter = (value: string) => {
     setManualType(value);
@@ -151,6 +160,7 @@ const Card = (props: { type?: string }) => {
                   placeholder="blur"
                   priority
                   quality={75}
+                  onLoad={() => setVisibleImageLoaded(true)}
                 />
               </div>
               <div className={styles.content}>
