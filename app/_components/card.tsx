@@ -5,6 +5,7 @@ import React, {
   useCallback,
   useEffect,
   useMemo,
+  useRef,
   useSyncExternalStore,
 } from "react";
 import Image from "next/image";
@@ -21,6 +22,18 @@ import parse, { domToReact } from "html-react-parser";
  */
 const IMAGE_SIZES = "(max-width: 470px) 100vw, 470px";
 
+const subscribeToLocation = (onChange: () => void) => {
+  window.addEventListener("popstate", onChange);
+  return () => window.removeEventListener("popstate", onChange);
+};
+
+/** 文字列 / null を返すので useSyncExternalStore のスナップショットとして安定する */
+const readTypeParam = () =>
+  new URLSearchParams(window.location.search).get("type");
+
+/** サーバーではクエリを見ず、常に既定のカードを描画する */
+const readTypeParamOnServer = () => null;
+
 const subscribeToMinute = (onChange: () => void) => {
   const id = window.setInterval(onChange, 60_000);
   return () => window.clearInterval(id);
@@ -36,14 +49,21 @@ const readNow = () => format(new Date(), "yyyy/MM/dd HH:mm");
  */
 const readNowOnServer = () => null;
 
-/**
- * 表示するカードは URL のパスで決まり、ページごとに静的生成される。
- * クエリ (?type=) と違いパスは HTML を分けられるため、共有された URL でも
- * 最初の描画から目的のカードが出る（サーバーレンダリングは不要）。
- */
 const Card = (props: { type?: string }) => {
-  const routeType = props.type ?? "index";
-  const isNotFound = routeType === "404";
+  const isNotFound = props.type === "404";
+
+  // useSearchParams() を使うと Suspense が fallback に落ち、カードごと
+  // HTML から消えてしまう。外部ストアとして読むことで静的 HTML に
+  // 既定のカードが入り、?type= のディープリンクも維持できる。
+  const rawTypeParam = useSyncExternalStore(
+    subscribeToLocation,
+    readTypeParam,
+    readTypeParamOnServer
+  );
+  const paramType =
+    rawTypeParam && characters.some((c) => c.type === rawTypeParam)
+      ? rawTypeParam
+      : null;
 
   const now = useSyncExternalStore(
     subscribeToMinute,
@@ -51,12 +71,18 @@ const Card = (props: { type?: string }) => {
     readNowOnServer
   );
 
-  // ハッシュタグのクリックによる切り替え。URL は変えず、即座に差し替える。
   const [manualType, setManualType] = useState<string | null>(null);
   const [visibleImageLoaded, setVisibleImageLoaded] = useState(false);
   const [preloadOthers, setPreloadOthers] = useState(false);
 
-  const activeType = isNotFound ? "404" : manualType ?? routeType;
+  // クエリが変わったら手動選択をリセットする
+  const prevParamType = useRef(paramType);
+  if (prevParamType.current !== paramType) {
+    prevParamType.current = paramType;
+    setManualType(null);
+  }
+
+  const activeType = isNotFound ? "404" : manualType ?? paramType ?? "index";
 
   const filterCharacter = useCallback((characterType: string) => {
     return characters.filter((e) => e.type === characterType);
