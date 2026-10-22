@@ -79,3 +79,18 @@
   color: var(--color-gray40);
   font-size: 0.8rem;
 }
+
+/* 先読み用。視覚的には見せないが、ブラウザには確実に取得させる */
+.preload {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+.preloadItem {
+  position: relative;
+  width: 1px;
+  height: 1px;
+}

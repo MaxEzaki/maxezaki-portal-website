@@ -1,3 +1,5 @@
+import type { StaticImageData } from "next/image";
+
 export interface Interview {
   id: number;
   image: string;
@@ -15,9 +17,9 @@ export interface Movie {
 export interface Character {
   name: string;
   image: {
-    src: string;
+    /** public/ からの静的インポート。next/image が寸法と blur を自動生成する */
+    src: StaticImageData;
     alt: string;
-    blurDataURL?: string;
   };
   description: string;
   type: string;
