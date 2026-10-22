@@ -4,6 +4,7 @@ import React, {
   useState,
   useCallback,
   useEffect,
+  useLayoutEffect,
   useMemo,
   useRef,
   useSyncExternalStore,
@@ -15,6 +16,7 @@ import { hashtags } from "../_data/hashtags";
 import { characters } from "../_data/characters";
 import Link from "next/link";
 import parse, { domToReact } from "html-react-parser";
+import { CARD_PENDING_ATTR } from "../lib/card-pending";
 
 /**
  * 実際の表示幅（card.module.css の .wrapper と揃える）。
@@ -83,6 +85,15 @@ const Card = (props: { type?: string }) => {
   }
 
   const activeType = isNotFound ? "404" : manualType ?? paramType ?? "index";
+
+  // ?type= のカードに切り替わったら、page.tsx のスクリプトが付けた
+  // 非表示の属性を外す。ハイドレート直後はサーバーと同じ index を描画するため
+  // paramType が null の間は外さない。
+  useLayoutEffect(() => {
+    if (paramType) {
+      document.documentElement.removeAttribute(CARD_PENDING_ATTR);
+    }
+  }, [paramType]);
 
   const filterCharacter = useCallback((characterType: string) => {
     return characters.filter((e) => e.type === characterType);

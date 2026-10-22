@@ -94,3 +94,8 @@
   width: 1px;
   height: 1px;
 }
+
+/* ?type= で開いたとき、正しいカードに切り替わるまで隠す（app/lib/card-pending.ts と対） */
+:global(html[data-card-pending]) .card {
+  visibility: hidden;
+}
