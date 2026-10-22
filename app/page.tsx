@@ -1,13 +1,13 @@
 import styles from "./page.module.css";
 import Card from "./_components/card";
-import { Suspense } from "react";
+import { cardPendingScript } from "./lib/card-pending";
 
 const Page = () => {
   return (
     <div className={styles.wrapper}>
-      <Suspense fallback={null}>
-        <Card />
-      </Suspense>
+      {/* カードより先に実行させ、描画前に ?type= を判定する */}
+      <script dangerouslySetInnerHTML={{ __html: cardPendingScript }} />
+      <Card />
     </div>
   );
 };
